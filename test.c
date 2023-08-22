@@ -1,12 +1,11 @@
-#include <unistd.h>
+#include <mlx.h>
 
-void ft_putchar (char c)
+int	main(void)
 {
-	write(1, &c, 1);
-}
+	void	*mlx;
+	void	*mlx_win;
 
-int	main()
-{
-	ft_putchar('c');
-	return (0);
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	mlx_loop(mlx);
 }

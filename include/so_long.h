@@ -8,7 +8,6 @@
 # include <unistd.h>
 # include <memory.h>
 
-# define WIDTH 256
-# define HEIGHT 256
+
 
 #endif

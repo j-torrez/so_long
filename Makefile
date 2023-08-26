@@ -1,30 +1,66 @@
-NAME	:= Game
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
-LIBMLX	:= /nfs/homes/jtorrez-/Documents/MLX42
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
+#    Updated: 2023/08/26 17:18:32 by jtorrez-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS	:= $(shell find ./src -iname "*.c")
-OBJS	:= ${SRCS:.c=.o}
+PROJECT = so long
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+MLX42FLAGS = -Iinclude -ldl -lglfw -pthread -lm
+NAME = so_long
+LIBFT = ./Libft/libft.a
+MLX42 = ../../MLX42/build/libmlx42.a
+INCLUDE = -I./include
+SRC = SRC/main.c
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
-all: libmlx $(NAME)
+BOLD    := \033[1m./SRC/
+RED     := \033[31;1m
+GREEN   := \033[32;1m
+YELLOW  := \033[33;1m
+BLUE    := \033[34;1m
+MAGENTA := \033[35;1m
+CYAN    := \033[36;1m
+WHITE   := \033[37;1m
+RESET	= \x1b[0m
 
-libmlx:
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+all: $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+$(NAME): $(LIBFT) $(MLX42) $(OBJ)	
+	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX42) $(MLX42FLAGS)
+	@echo "$(CYAN)-------------------------------------------"
+	@echo "	$(NAME) = NOW READY FOR USE!"
+	@echo "-------------------------------------------$(RESET)"
 
-$(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+$(LIBFT):
+	@$(MAKE) -C ./Libft
+
+$(MLX42):
+	@$(MAKE) -C ./MLX42
+
+$(OBJ_DIR)/%.o: ./SRC/%.c
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compiled ✅ $(CYAN) $^ $(RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $^
 
 clean:
-	@rm -rf $(OBJS)
-	@rm -rf $(LIBMLX)/build
+	@$(MAKE) clean -C ./Libft
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@$(MAKE) fclean -C ./Libft
+	@rm -f $(NAME)
+	@echo "$(GREEN) $(PROJECT) $(RESET) Cleaned ✅"
 
-re: clean all
+re: fclean all
 
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all clean fclean re

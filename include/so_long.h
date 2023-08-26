@@ -8,6 +8,12 @@
 # include <unistd.h>
 # include <memory.h>
 
+typedef struct s_map
+{
+	int width;
+	int height;
+	char **grid;
+} t_map;
 
 
 #endif

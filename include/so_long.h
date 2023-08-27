@@ -9,12 +9,12 @@
 # include <memory.h>
 
 
-typedef struct s_map
+typedef struct s_game
 {
-	int width;
-	int height;
-	char **grid;
-} t_map;
+	char 	**grid;
+	int 	width;
+	int 	height;
+} t_game;
 
 char *read_map(char *map);
 

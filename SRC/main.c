@@ -30,6 +30,7 @@ int main (int argc, char *argv[])
 {
 	char *arg1 = argv[0];
 	char *arg2 = argv[1];
+	char *result;
 
 	if (argc != 2)
 	{
@@ -37,5 +38,8 @@ int main (int argc, char *argv[])
 		return 1; 
 	}
 	check_extension(arg2);
+	result = read_map(arg2);
+	ft_printf("First line %s", result);
+	return (0);
 }
 

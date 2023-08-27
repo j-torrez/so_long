@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:54:08 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/05/29 18:26:47 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:25:19 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static char	*ft_save_remaining_lines(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strleng(stash) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;

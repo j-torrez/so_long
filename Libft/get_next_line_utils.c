@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:37:01 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/08/27 15:24:34 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:28:36 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strleng(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup_line(const char *s1)
 {
 	size_t	i;
 	size_t	size;
@@ -45,7 +45,7 @@ char	*ft_strdup(const char *s1)
 	return (copy);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_line(const char *s, int c)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if ((unsigned int)ft_strleng(s) < start)
-		return (ft_strdup(""));
+		return (ft_strdup_line(""));
 	size = ft_strleng(s + start);
 	if (size < len)
 		len = size;
@@ -92,7 +92,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (tab);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_line(char const *s1, char const *s2)
 {
 	size_t	i;
 	size_t	j;

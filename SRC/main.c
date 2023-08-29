@@ -39,7 +39,7 @@ int main (int argc, char *argv[])
 	}
 	check_extension(arg2);
 	result = read_map(arg2);
-	ft_printf("First line %s", result);
+	ft_printf("First line %s\n", result);
 	return (0);
 }
 

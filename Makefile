@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
+#    By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
-#    Updated: 2023/08/27 15:16:04 by jtorrez-         ###   ########.fr        #
+#    Updated: 2023/08/29 14:20:28 by johnbosco        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROJECT = so long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-MLX42FLAGS = -Iinclude -ldl -lglfw -pthread -lm
+MLX42FLAGS = -framework Cocoa -framework OpenGL -framework IOKit
 NAME = so_long
 LIBFT = ./Libft/libft.a
 MLX42 = ../../MLX42/build/libmlx42.a

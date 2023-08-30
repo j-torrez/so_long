@@ -16,7 +16,17 @@ typedef struct s_game
 	int 	height;
 } t_game;
 
+typedef struct s_map_content
+{
+	int exit;
+	int collectible;
+	int position;
+
+} t_map_content;
+
+
 char *read_map(char *map);
 char **map_as_array(char *map_one_line);
+void check_map_content(char *map_as_one_line);
 
 #endif

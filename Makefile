@@ -6,7 +6,7 @@
 #    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
-#    Updated: 2023/08/27 15:16:04 by jtorrez-         ###   ########.fr        #
+#    Updated: 2023/08/30 18:48:01 by jtorrez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = so_long
 LIBFT = ./Libft/libft.a
 MLX42 = ../../MLX42/build/libmlx42.a
 INCLUDE = -I./include
-SRC = SRC/main.c SRC/parse_map.c   /
+SRC = SRC/main.c SRC/parse_map.c SRC/check_valid_map.c  /
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

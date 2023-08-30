@@ -51,11 +51,12 @@ int main (int argc, char *argv[])
 	map_array = map_as_array(result);
 	int i = 0;
 	 while (map_array[i] != NULL) {
-        printf("Map as array: %s\n", map_array[i]);
-        free(map_array[i]); // Free the memory for each line
+        ft_printf("Map as array: %s\n", map_array[i]);
         i++;
     }
-	free(map_array);
-    
+	ft_printf("Map first line: %c\n", map_array[0][0]);
+	
+
+
 }
 

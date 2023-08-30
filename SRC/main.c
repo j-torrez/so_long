@@ -31,6 +31,7 @@ int main (int argc, char *argv[])
 	char *arg1 = argv[0];
 	char *arg2 = argv[1];
 	char *result;
+	
 
 	if (argc != 2)
 	{
@@ -39,7 +40,22 @@ int main (int argc, char *argv[])
 	}
 	check_extension(arg2);
 	result = read_map(arg2);
-	ft_printf("First line %s", result);
-	return (0);
+
+// Test Map as a single String: 
+	ft_printf("Map as one string: \n");
+	ft_printf("%s\n", result);
+
+// Test Map as a 2D array
+
+	char **map_array;
+	map_array = map_as_array(result);
+	int i = 0;
+	 while (map_array[i] != NULL) {
+        printf("Map as array: %s\n", map_array[i]);
+        free(map_array[i]); // Free the memory for each line
+        i++;
+    }
+	free(map_array);
+    
 }
 

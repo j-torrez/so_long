@@ -17,5 +17,6 @@ typedef struct s_game
 } t_game;
 
 char *read_map(char *map);
+char **map_as_array(char *map_one_line);
 
 #endif

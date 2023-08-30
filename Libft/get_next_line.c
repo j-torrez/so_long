@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:54:08 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/08/27 15:25:19 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:43:40 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_free(char *stash, char *buffer)
 {
 	char	*temp;
 
-	temp = ft_strjoin(stash, buffer);
+	temp = ft_strjoin_line(stash, buffer);
 	free(stash);
 	return (temp);
 }
@@ -31,12 +31,12 @@ static char	*ft_read_line(int fd, char *stash)
 	ssize_t	bytes_read;
 
 	if (stash == NULL)
-		stash = ft_strdup("");
+		stash = ft_strdup_line("");
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	while (ft_strchr(stash, '\n') == NULL && bytes_read != 0)
+	while (ft_strchr_line(stash, '\n') == NULL && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)

@@ -30,5 +30,6 @@ char **map_as_array(char *map_one_line);
 void check_map_content(char *map_as_one_line);
 void validate_map_content (int i);
 void check_rectangular_map(char **map_as_arr);
-int total_rows (char **map_as_array);
+void width_map(char **map_as_array);
+void height_map(char **map_as_array);
 #endif

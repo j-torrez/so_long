@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../../MLX42/include/MLX42/MLX42.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -28,5 +28,6 @@ typedef struct s_map_content
 char *read_map(char *map);
 char **map_as_array(char *map_one_line);
 void check_map_content(char *map_as_one_line);
+void check_rectangular_map(char **map_as_arr);
 
 #endif

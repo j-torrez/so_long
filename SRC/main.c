@@ -59,7 +59,8 @@ int main (int argc, char *argv[])
     }
 	ft_printf("Map first line: %c\n", map_array[0][0]);
 	
-
+//Check Rectangular Map
+	check_rectangular_map(map_array);
 
 }
 

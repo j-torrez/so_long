@@ -16,3 +16,15 @@ void	check_rectangular_map(char **map_as_arr)
 		i++;
 	}
 }
+
+int total_rows (char **map_as_array)
+{
+	int i; 
+
+	i = 0;
+	while (map_as_array[i])
+	{
+		i++;
+	}
+	return i;	
+}

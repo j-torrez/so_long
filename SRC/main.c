@@ -62,5 +62,8 @@ int main (int argc, char *argv[])
 //Check Rectangular Map
 	check_rectangular_map(map_array);
 
+//Check Walls 
+	total_rows(map_array);
+
 }
 

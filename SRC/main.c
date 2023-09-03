@@ -58,13 +58,19 @@ int main (int argc, char *argv[])
         i++;
     }
 	ft_printf("Map first line: %c\n", map_array[0][0]);
-	
+
 //Check Rectangular Map
 	check_rectangular_map(map_array);
 
-//Check Walls 
-	width_map(map_array);
-	height_map(map_array);
+//Check Structure Initialization
+	t_game *game2; 
+	game2 = initialize_game_struct(map_array);
+	if (game2 != NULL)
+	{
+		printf("Width: %d\n", game2->width);
+		printf("Height: %d\n", game2->height);
+		free(game2);
+	}
 
 }
 

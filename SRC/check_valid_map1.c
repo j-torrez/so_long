@@ -17,7 +17,7 @@ void	check_rectangular_map(char **map_as_arr)
 	}
 }
 
-void height_map(char **map_as_array)
+int height_map(char **map_as_array)
 {
 	int i; 
 
@@ -26,10 +26,10 @@ void height_map(char **map_as_array)
 	{
 		i++;
 	}
-	ft_printf("Height: %d\n", i);
+	return i;
 }
 
-void width_map(char **map_as_array)
+int width_map(char **map_as_array)
 {
-	ft_printf("Width: %d\n", ft_strlen(map_as_array[0]));
+	return (ft_strlen(map_as_array[0]));
 }

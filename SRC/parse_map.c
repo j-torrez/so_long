@@ -10,12 +10,15 @@ char *read_map(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("Unable to open file");
-		return NULL;
+		perror("Error:");
+		exit(-1);
 	}
 
 	map_one_line = ft_strdup("");
-	while (true)
+	if (!map_one_line)
+		return (NULL);
+
+	while (1)
 	{
 		temp_line = get_next_line(fd);
 		if(temp_line)

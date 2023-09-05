@@ -38,7 +38,6 @@ char **map_as_array (char *map_one_line)
 	char delimiter = '\n';
 
 	map_as_arr = ft_split(map_one_line, delimiter);
-
 	return map_as_arr;
 }
 

@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../MLX42/include/MLX42/MLX42.h"
+# include "../../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -33,4 +33,5 @@ void check_rectangular_map(char **map_as_arr);
 int width_map(char **map_as_array);
 int height_map(char **map_as_array);
 t_game *initialize_game_struct (char **grid);
+void	check_walls_map(t_game *game);
 #endif

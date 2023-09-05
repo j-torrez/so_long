@@ -57,7 +57,7 @@ int main (int argc, char *argv[])
         ft_printf("Map as array: %s\n", map_array[i]);
         i++;
     }
-	ft_printf("Map first line: %c\n", map_array[0][0]);
+	ft_printf("Map first line: %c\n", map_array[0][1]);
 
 //Check Rectangular Map
 	check_rectangular_map(map_array);
@@ -69,8 +69,9 @@ int main (int argc, char *argv[])
 	{
 		printf("Width: %d\n", game2->width);
 		printf("Height: %d\n", game2->height);
-		free(game2);
+		
 	}
-
+	check_walls_map(game2);
+	free(game2);
 }
 

@@ -3,22 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+         #
+#    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
-#    Updated: 2023/09/03 23:37:08 by johnbosco        ###   ########.fr        #
+#    Updated: 2023/09/05 13:26:22 by jtorrez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROJECT = so long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-MLX42FLAGS = -framework Cocoa -framework OpenGL -framework IOKit
+CFLAGS = -Wall -Wextra -Werror -g
+MLX42FLAGS = -Iinclude -ldl -lglfw -pthread -lm
 NAME = so_long
 LIBFT = ./Libft/libft.a
-MLX42 = ../MLX42/build/libmlx42.a
+MLX42 = ../../MLX42/build/libmlx42.a
 INCLUDE = -I./include
-SRC = SRC/main.c SRC/parse_map.c SRC/check_valid_map.c SRC/check_valid_map1.c initialize_struct.c /
+SRC = SRC/main.c SRC/parse_map.c SRC/check_valid_map.c SRC/check_valid_map1.c initialize_struct.c utilities.c /
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

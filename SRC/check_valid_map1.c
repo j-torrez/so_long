@@ -17,19 +17,36 @@ void	check_rectangular_map(char **map_as_arr)
 	}
 }
 
-int height_map(char **map_as_array)
+void	check_walls_map(t_game *game)
 {
 	int i; 
 
 	i = 0;
-	while (map_as_array[i])
+	// Check first and last column surronded by walls
+	while (i < game->height)
 	{
+		if ((game->grid[i][0] != '1') || (game->grid[i][game->width - 1] != '1') )
+		{
+			ft_printf("Map is not surronded by walls\n");
+		}
+		else
+		{
+			ft_printf("Map is surronded by walls \n");
+		}
 		i++;
 	}
-	return i;
-}
-
-int width_map(char **map_as_array)
-{
-	return (ft_strlen(map_as_array[0]));
+	//Check first and last row surronded by walls
+	i = 0;
+	while (i < game->width)
+	{
+		if((game->grid[0][i]!= '1') || (game->grid[game->height - 1][i] != '1'))
+		{
+			ft_printf("NOT walls \n");
+		}
+		else
+		{
+			ft_printf("WALLS \n");
+		}
+		i++;
+	}
 }

@@ -48,6 +48,9 @@ int main (int argc, char *argv[])
 //Test Map has 1E 1P and more than 1C
 	check_map_content(result);
 
+//Test Empty_MAP
+	check_map_empty(result);
+
 // Test Map as a 2D array
 
 	char **map_array;

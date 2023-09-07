@@ -4,7 +4,7 @@ void validate_map_content (int i)
 {
 	if (!(ft_strchr("01CEP\n", i)))
 	{
-		ft_printf("Invalid characters\n");
+		error_msg("Invalid characters\n");
 	}
 	
 }
@@ -31,6 +31,17 @@ void check_map_content(char *map_as_one_line)
 	i++; 
 	}
 	if (content.exit != 1 || content.collectible < 1 || content.position != 1)
-		ft_printf("Please check the content of your map\n");
-	ft_printf("The map has\n %d Exit \n %d Collectibles \n %d Positions\n", content.exit, content.collectible, content.position);
+	{
+		ft_printf("The map has\n %d Exit \n %d Collectibles \n %d Positions\n", content.exit, content.collectible, content.position);
+		error_msg("Please check the content of your map\n");
+	}
+}
+
+void check_map_empty(char *map_as_one_line)
+{
+	int	i; 
+
+	i = 0; 
+	if (!map_as_one_line[i])
+		error_msg("Map is Empty");
 }

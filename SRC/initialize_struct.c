@@ -1,4 +1,14 @@
 #include "so_long.h"
+/*
+t_game *initialize_data (char *map)
+{
+	t_game	*data;
+	char	*map_as_one_line;
+	char 	**map_as_arr; 
+
+	map_as_one_line = read_map(map);
+
+}	*/
 
 t_game *initialize_game_struct (char **grid)
 {

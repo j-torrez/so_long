@@ -11,7 +11,7 @@ void	check_rectangular_map(char **map_as_arr)
 	{
 		if (first_row != ft_strlen(map_as_arr[i]))
 		{
-			ft_printf("Map is not rectangular");
+			error_msg("Map is not rectangular");
 		}
 		i++;
 	}
@@ -27,11 +27,7 @@ void	check_walls_map(t_game *game)
 	{
 		if ((game->grid[i][0] != '1') || (game->grid[i][game->width - 1] != '1') )
 		{
-			ft_printf("Map is not surronded by walls\n");
-		}
-		else
-		{
-			ft_printf("Map is surronded by walls \n");
+			error_msg("Map is not surronded by walls\n");
 		}
 		i++;
 	}
@@ -41,11 +37,7 @@ void	check_walls_map(t_game *game)
 	{
 		if((game->grid[0][i]!= '1') || (game->grid[game->height - 1][i] != '1'))
 		{
-			ft_printf("NOT walls \n");
-		}
-		else
-		{
-			ft_printf("WALLS \n");
+			error_msg("Map is not surronded by walls \n");
 		}
 		i++;
 	}

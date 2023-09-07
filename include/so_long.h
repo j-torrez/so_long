@@ -28,10 +28,12 @@ typedef struct s_map_content
 char *read_map(char *map);
 char **map_as_array(char *map_one_line);
 void check_map_content(char *map_as_one_line);
+void check_map_empty (char *map_as_one_line);
 void validate_map_content (int i);
 void check_rectangular_map(char **map_as_arr);
 int width_map(char **map_as_array);
 int height_map(char **map_as_array);
 t_game *initialize_game_struct (char **grid);
-void	check_walls_map(t_game *game);
+void check_walls_map(t_game *game);
+void error_msg(char *msg);
 #endif

@@ -1,5 +1,20 @@
 #include "so_long.h"
 
+void check_extension (char *word)
+{
+	int word_length;
+
+	word_length = ft_strlen(word);
+
+	if (word_length >= 11)
+	{
+		if (ft_strncmp(word + word_length - 4, ".ber", 4))
+		{
+			error_msg("Please use extension .ber\n");
+		}
+	}
+}
+
 void validate_map_content (int i)
 {
 	if (!(ft_strchr("01CEP\n", i)))

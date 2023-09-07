@@ -36,4 +36,6 @@ int height_map(char **map_as_array);
 t_game *initialize_game_struct (char **grid);
 void check_walls_map(t_game *game);
 void error_msg(char *msg);
+t_game *initialize_data (char *map);
+void check_extension (char *word);
 #endif

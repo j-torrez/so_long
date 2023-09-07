@@ -1,5 +1,5 @@
 #include "so_long.h"
-/*
+
 t_game *initialize_data (char *map)
 {
 	t_game	*data;
@@ -7,8 +7,19 @@ t_game *initialize_data (char *map)
 	char 	**map_as_arr; 
 
 	map_as_one_line = read_map(map);
+	map_as_arr = map_as_array(map_as_one_line);
 
-}	*/
+	check_map_empty(map_as_one_line);
+	check_map_content(map_as_one_line);
+	check_rectangular_map(map_as_arr);
+
+	data = initialize_game_struct(map_as_arr);
+	check_walls_map(data);
+
+	free(map_as_one_line);
+
+	return (data);
+}
 
 t_game *initialize_game_struct (char **grid)
 {

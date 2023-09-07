@@ -21,5 +21,7 @@ int main (int argc, char *argv[])
 
 	ft_printf("Game width: %d\n", game->width);
     ft_printf("Game height: %d\n", game->height);
+
+	free(game);
 }
 

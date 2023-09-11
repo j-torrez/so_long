@@ -1,19 +1,21 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../../MLX42/include/MLX42/MLX42.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <memory.h>
 
+# define PIXELS 64
 
 typedef struct s_game
 {
 	char 	**grid;
 	int 	width;
 	int 	height;
+	mlx_t	*mlx;
 } t_game;
 
 typedef struct s_map_content
@@ -23,7 +25,6 @@ typedef struct s_map_content
 	int position;
 
 } t_map_content;
-
 
 char *read_map(char *map);
 char **map_as_array(char *map_one_line);

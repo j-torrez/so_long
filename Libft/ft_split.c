@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:53:41 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/05/20 18:42:30 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:41:28 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* *count -> numbers of substring are
-	*count = 0, we are dereferencing the pointer
+
+/*	*count = 0, we are dereferencing the pointer
 	to actually set the value that is pointing to 0*/
 
 #include "libft.h"

@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../MLX42/include/MLX42/MLX42.h"
+# include "../../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -16,6 +16,7 @@ typedef struct s_game
 	int 	width;
 	int 	height;
 	mlx_t	*mlx;
+	t_img	*img;
 } t_game;
 
 typedef struct s_map_content
@@ -25,6 +26,12 @@ typedef struct s_map_content
 	int position;
 
 } t_map_content;
+
+typedef struct s_img
+{
+	mlx_image_t *sky;
+} t_img;
+
 
 char *read_map(char *map);
 char **map_as_array(char *map_one_line);
@@ -39,4 +46,5 @@ void check_walls_map(t_game *game);
 void error_msg(char *msg);
 t_game *initialize_data (char *map);
 void check_extension (char *word);
+t_img	*load_sky_texture(mlx_t *mlx, t_img *img);
 #endif

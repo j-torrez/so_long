@@ -1,28 +1,14 @@
 #include "so_long.h"
-#define WIDTH 256
-#define HEIGHT 256
 /*
 Check if the word in long enough
 Compare the last character of the word with .ber
 */
 
-static void ft_error(void)
-{
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
-}
-
-static	void ft_hook(void *param)
-{
-	const	mlx_t *mlx = param;
-	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
-}
-/*
  int main (int argc, char *argv[])
 {	
 	char *arg1 = argv[0];
 	char *arg2 = argv[1];
-	t_game	*game; 
+	t_game	*game;
 	
 
 	if (argc != 2)
@@ -31,38 +17,22 @@ static	void ft_hook(void *param)
 		return 1; 
 	}
 	check_extension(arg2);
-	game = initialize_data(arg2);	
+	game = initialize_data(arg2);
 
+	game->mlx = mlx_init(game->width * PIXELS, game->height * PIXELS, 
+	"so_long", false);
+
+	if (!game ->mlx)
+	{
+		return (EXIT_FAILURE);
+	}
+
+
+	mlx_loop(game->mlx);
+	mlx_terminate(game->mlx);
 
 	ft_printf("Game width: %d\n", game->width);
     ft_printf("Game height: %d\n", game->height);
 
 	free(game);		
-}	*/	
-
-int32_t	main(void)
-{
-
-	// MLX allows you to define its core behaviour before startup.
-	mlx_set_setting(MLX_MAXIMIZED, true);
-	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "42Balls", true);
-	if (!mlx)
-		ft_error();
-
-	/* Do stuff */
-
-	// Create and display the image.
-	mlx_image_t* img = mlx_new_image(mlx, 256, 256);
-	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
-		ft_error();
-
-	// Even after the image is being displayed, we can still modify the buffer.
-	mlx_put_pixel(img, 0, 0, 0xFF0000FF);
-
-	// Register a hook and pass mlx as an optional param.
-	// NOTE: Do this before calling mlx_loop!
-	mlx_loop_hook(mlx, ft_hook, mlx);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
-	return (EXIT_SUCCESS);
 }

@@ -10,6 +10,7 @@ Compare the last character of the word with .ber
 	char *arg2 = argv[1];
 	t_game	*game;
 	t_img	*image;
+	t_img	*img;
 	
 
 	if (argc != 2)
@@ -27,8 +28,10 @@ Compare the last character of the word with .ber
 	{
 		return (EXIT_FAILURE);
 	}
-	image = load_sky_texture(game->mlx, image->sky);
-	mlx_image_to_window(game->mlx, image, 0, 0);
+
+	image = load_sky_texture(game->mlx, img->sky);
+	mlx_image_to_window(game->mlx, image->sky, 0 , 0);
+
 	
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);

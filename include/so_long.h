@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../../MLX42/include/MLX42/MLX42.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -16,7 +16,7 @@ typedef struct s_game
 	int 	width;
 	int 	height;
 	mlx_t	*mlx;
-	t_img	*img;
+	struct s_img *img;
 } t_game;
 
 typedef struct s_map_content

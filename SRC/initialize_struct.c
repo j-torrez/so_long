@@ -36,3 +36,17 @@ t_game *initialize_game_struct (char **grid)
 
 	return (game);
 }
+
+t_img	*initalize_img_struct (mlx_t *mlx)
+{
+	t_img	*img_assets;
+
+	img_assets = (t_img *)ft_calloc(1, sizeof(t_img));
+	
+	if (!img_assets)
+		ft_printf ("Error allocating memory for images asssets");
+
+	img_assets = load_sky_texture(mlx, img_assets);
+
+	return img_assets;
+}

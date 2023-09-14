@@ -13,5 +13,6 @@ t_img	*load_sky_texture(mlx_t *mlx, t_img *img)
 		error_msg("Problem converting texture to image");
 	mlx_delete_texture(sky);
 	return (img);
-
+	//It return a pointer
+	// to a Structure ? So how do we access that element.
 }

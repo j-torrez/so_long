@@ -9,7 +9,7 @@ Compare the last character of the word with .ber
 	char *arg1 = argv[0];
 	char *arg2 = argv[1];
 	t_game	*game;
-	t_img	*assets;
+	t_img	*image;
 
 	if (argc != 2)
 	{
@@ -27,12 +27,8 @@ Compare the last character of the word with .ber
 		return (EXIT_FAILURE);
 	}
 
-	assets = (t_img *)ft_calloc(1, sizeof(t_img));
-	if (!assets)
-		error_msg ("Error alocating memory for Images");
-	assets = load_sky_texture(game->mlx, assets);
-	
-	mlx_image_to_window(game->mlx, assets->sky, 0 , 0);
+	image = initalize_img_struct(game->mlx);
+	mlx_image_to_window(game->mlx, image->sky, 0 , 0);
 
 	
 	mlx_loop(game->mlx);

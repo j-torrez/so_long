@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+         #
+#    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
-#    Updated: 2023/09/14 01:01:25 by johnbosco        ###   ########.fr        #
+#    Updated: 2023/09/14 18:40:44 by jtorrez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROJECT = so long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
-MLX42FLAGS = -lglfw -L/opt/homebrew/Cellar/glfw/3.3.8/lib/ -framework Cocoa -framework OpenGL -framework IOKit
+MLX42FLAGS = -Iinclude -ldl -lglfw -pthread -lm
 NAME = so_long
 LIBFT = ./Libft/libft.a
-MLX42 = ../MLX42/build/libmlx42.a
+MLX42 = ../../MLX42/build/libmlx42.a
 INCLUDE = -I./include
 SRC = SRC/main.c SRC/parse_map.c SRC/check_valid_map.c SRC/check_valid_map1.c initialize_struct.c utilities.c SRC/load_images.c /
 OBJ_DIR = obj

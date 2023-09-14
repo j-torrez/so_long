@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../MLX42/include/MLX42/MLX42.h"
+# include "../../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -47,4 +47,5 @@ void error_msg(char *msg);
 t_game *initialize_data (char *map);
 void check_extension (char *word);
 t_img	*load_sky_texture(mlx_t *mlx, t_img *img);
+t_img	*initalize_img_struct (mlx_t *mlx);
 #endif

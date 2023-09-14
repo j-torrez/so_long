@@ -29,8 +29,10 @@ Compare the last character of the word with .ber
 
 	image = initalize_img_struct(game->mlx);
 	mlx_image_to_window(game->mlx, image->sky, 0 , 0);
-
+	mlx_image_to_window(game->mlx, image->sky, 64 , 0);
+	mlx_image_to_window(game->mlx, image->sky, 128 , 0);
 	
+
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 

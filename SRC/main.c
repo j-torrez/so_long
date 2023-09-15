@@ -20,7 +20,7 @@ Compare the last character of the word with .ber
 	game = initialize_data(arg2);
 
 	game->mlx = mlx_init(game->width * PIXELS, game->height * PIXELS, 
-	"so_long", false);
+	"so_long", true);
 
 	if (!game->mlx)
 	{
@@ -28,10 +28,9 @@ Compare the last character of the word with .ber
 	}
 
 	image = initalize_img_struct(game->mlx);
-	mlx_image_to_window(game->mlx, image->sky, 0 , 0);
-	mlx_image_to_window(game->mlx, image->sky, 64 , 0);
-	mlx_image_to_window(game->mlx, image->sky, 128 , 0);
-	
+	game->img = image;
+	background_image(game);
+
 
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);

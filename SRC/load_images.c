@@ -4,7 +4,7 @@ t_img	*load_sky_texture(mlx_t *mlx, t_img *img)
 {
 	//Try to load image file
 	mlx_texture_t *sky;
-	sky = mlx_load_png("./Sprites/sky1.png");
+	sky = mlx_load_png("./Sprites/gradient1.png");
 	if (!sky)
 		error_msg("Problem loading sky image");
 	//Convert texture to a displayable image

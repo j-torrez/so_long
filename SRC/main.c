@@ -30,6 +30,7 @@ Compare the last character of the word with .ber
 	image = initalize_img_struct(game->mlx);
 	game->img = image;
 	background_image(game);
+	locate_images(game);
 
 
 	mlx_loop(game->mlx);

@@ -15,3 +15,32 @@ void	background_image(t_game *data)
 		data->position_x++;
 	}
 }
+
+void render_map(t_game *data, int y, int x)
+{
+	if (data->grid[y][x] == '1')
+		if (mlx_image_to_window (data->mlx, data->img->tree, x * PIXELS, y * PIXELS) < 0 )
+		{
+			error_msg("Failed to put tree images");
+		}
+}
+
+void locate_images(t_game *data)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
+	while (y < data->height)
+	{
+		x = 0;
+		while (x < data->width)
+		{
+			render_map(data, y, x);
+			x++;
+		}
+		y++;
+	}
+}
+

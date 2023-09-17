@@ -32,6 +32,7 @@ typedef struct s_map_content
 typedef struct s_img
 {
 	mlx_image_t *sky;
+	mlx_image_t *tree;
 } t_img;
 
 
@@ -51,4 +52,7 @@ void check_extension (char *word);
 t_img	*load_sky_texture(mlx_t *mlx, t_img *img);
 t_img	*initalize_img_struct (mlx_t *mlx);
 void	background_image(t_game *data);
+t_img	*load_tree_texture(mlx_t *mlx, t_img *img);
+void render_map(t_game *data, int y, int x);
+void locate_images(t_game *data);
 #endif

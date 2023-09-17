@@ -29,3 +29,16 @@ t_img	*load_tree_texture(mlx_t *mlx, t_img *img)
 	mlx_delete_texture(tree);
 	return (img);
 }
+
+t_img	*load_collectible_texture(mlx_t *mlx, t_img *img)
+{
+	mlx_texture_t *honey;
+	honey = mlx_load_png("./Sprites/Honey.png");
+	if (!honey)
+		error_msg("Problem loading honey image");
+	img->honey = mlx_texture_to_image(mlx, honey);
+	if (!img->honey)
+		error_msg("Problem converting texture to image");
+	mlx_delete_texture(honey);
+	return (img);
+}

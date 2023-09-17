@@ -37,6 +37,11 @@ void render_map(t_game *data, int y, int x)
 			{
 				error_msg ("Failed to put character image");
 			}
+	if (data->grid[y][x] == 'E')
+			if(mlx_image_to_window (data->mlx, data->img->exit_close, x * PIXELS, y * PIXELS) < 0)
+			{
+				error_msg ("Failed to put exit image");
+			}
 }
 
 void locate_images(t_game *data)

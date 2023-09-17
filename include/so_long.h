@@ -35,6 +35,7 @@ typedef struct s_img
 	mlx_image_t *tree;
 	mlx_image_t *honey;
 	mlx_image_t *character;
+	mlx_image_t *exit_close;
 } t_img;
 
 
@@ -59,4 +60,5 @@ void render_map(t_game *data, int y, int x);
 void locate_images(t_game *data);
 t_img	*load_collectible_texture(mlx_t *mlx, t_img *img);
 t_img	*load_main_character_texture(mlx_t *mlx, t_img *img);
+t_img *load_exit_close_texture(mlx_t *mlx, t_img *img);
 #endif

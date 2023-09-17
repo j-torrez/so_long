@@ -49,6 +49,7 @@ t_img	*initalize_img_struct (mlx_t *mlx)
 	img_assets = load_sky_texture(mlx, img_assets);
 	img_assets = load_tree_texture(mlx, img_assets);
 	img_assets = load_collectible_texture(mlx, img_assets);
+	img_assets = load_main_character_texture(mlx, img_assets);
 
 	return img_assets;
 }

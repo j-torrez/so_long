@@ -24,14 +24,19 @@ void render_map(t_game *data, int y, int x)
 
 	if (data->grid[y][x] == '1')
 		if (mlx_image_to_window (data->mlx, data->img->tree, x * PIXELS, y * PIXELS) < 0 )
-		{
-			error_msg("Failed to put tree images");
-		}
+			{
+				error_msg("Failed to put tree images");
+			}
 	if (data->grid[y][x] == 'C')
 			if (mlx_image_to_window (data->mlx, data->img->honey, x * PIXELS + img_size / 2, y * PIXELS + img_size / 2) < 0 )
-		{
-			error_msg("Failed to put tree images");
-		}
+			{
+				error_msg("Failed to put tree images");
+			}
+	if (data->grid[y][x] == 'P')
+			if(mlx_image_to_window (data->mlx, data->img->character, x * PIXELS, y * PIXELS) < 0)
+			{
+				error_msg ("Failed to put character image");
+			}
 }
 
 void locate_images(t_game *data)

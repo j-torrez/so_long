@@ -33,6 +33,10 @@ t_game *initialize_game_struct (char **grid)
 	game->width = width_map(grid);
 	game->height = height_map(grid);
 	game->grid = grid;
+	game->chara_pos_x = get_character_pos(game, 'x');
+	game->chara_pos_y = get_character_pos(game, 'y');
+	game->exit_pos_x = get_exit_pos(game, 'x');
+	game->exit_pos_y = get_exit_pos(game, 'y');
 
 	return (game);
 }

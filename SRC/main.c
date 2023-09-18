@@ -32,6 +32,7 @@ Compare the last character of the word with .ber
 	game->img = image;
 	background_image(game);
 	locate_images(game);
+	string_to_screen(game);
 	num = get_exit_pos(game, 'y');
 
 

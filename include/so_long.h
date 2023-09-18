@@ -41,6 +41,7 @@ typedef struct s_img
 	mlx_image_t *character;
 	mlx_image_t *exit_close;
 	mlx_image_t *exit_open;
+	mlx_image_t *moves_print;
 } t_img;
 
 
@@ -69,4 +70,5 @@ t_img *load_exit_close_texture(mlx_t *mlx, t_img *img);
 t_img *load_exit_open_texture(mlx_t *mlx, t_img *img);
 int	get_character_pos(t_game *game, char c);
 int	get_exit_pos(t_game *game, char c );
+void	string_to_screen(t_game *game);
 #endif

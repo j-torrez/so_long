@@ -58,9 +58,8 @@ t_img	*load_main_character_texture(mlx_t *mlx, t_img *img)
 
 t_img *load_exit_close_texture(mlx_t *mlx, t_img *img)
 {
-	{
 	mlx_texture_t *exit_close;
-	exit_close = mlx_load_png("./Sprites/maison.png");
+	exit_close = mlx_load_png("./Sprites/Exit_closed.png");
 	if (!exit_close)
 		error_msg("Problem loading exit image");
 	img->exit_close = mlx_texture_to_image(mlx, exit_close);
@@ -68,5 +67,5 @@ t_img *load_exit_close_texture(mlx_t *mlx, t_img *img)
 		error_msg("Problem converting texture to image");
 	mlx_delete_texture(exit_close);
 	return (img);
-}
+
 }

@@ -18,6 +18,10 @@ typedef struct s_game
 	int32_t		position_x;
 	int32_t		position_y;
 	mlx_t		*mlx;
+	int			chara_pos_x;
+	int			chara_pos_y;
+	int			exit_pos_x;
+	int			exit_pos_y;
 	struct s_img *img;
 } t_game;
 
@@ -63,4 +67,6 @@ t_img	*load_collectible_texture(mlx_t *mlx, t_img *img);
 t_img	*load_main_character_texture(mlx_t *mlx, t_img *img);
 t_img *load_exit_close_texture(mlx_t *mlx, t_img *img);
 t_img *load_exit_open_texture(mlx_t *mlx, t_img *img);
+int	get_character_pos(t_game *game, char c);
+int	get_exit_pos(t_game *game, char c );
 #endif

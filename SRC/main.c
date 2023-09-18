@@ -10,6 +10,7 @@ Compare the last character of the word with .ber
 	char *arg2 = argv[1];
 	t_game	*game;
 	t_img	*image;
+	int num;
 
 	if (argc != 2)
 	{
@@ -31,6 +32,7 @@ Compare the last character of the word with .ber
 	game->img = image;
 	background_image(game);
 	locate_images(game);
+	num = get_exit_pos(game, 'y');
 
 
 	mlx_loop(game->mlx);
@@ -38,6 +40,7 @@ Compare the last character of the word with .ber
 
 	ft_printf("Game width: %d\n", game->width);
     ft_printf("Game height: %d\n", game->height);
+	ft_printf("Poition: %d\n", num);
 
 	free(game);		
 }

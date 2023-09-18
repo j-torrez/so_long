@@ -33,6 +33,7 @@ Compare the last character of the word with .ber
 	background_image(game);
 	locate_images(game);
 	string_to_screen(game);
+	print_moves(game);
 	num = get_exit_pos(game, 'y');
 
 

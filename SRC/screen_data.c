@@ -14,4 +14,14 @@ void	print_moves(t_game *game)
 
 	mlx_delete_image(game->mlx, game->img->moves_nbr);
 	game->img->moves_nbr = mlx_put_string(game->mlx, str, 80, game->height * 64 - 44);
+	free(str);
+}
+
+void	print_collectibles(t_game *game)
+{
+	char *str;
+	str = ft_itoa(game->collectibles);
+	mlx_delete_image(game->mlx, game->img->collectibles_nbr);
+	game->img->collectibles_nbr = mlx_put_string(game->mlx, str, 175, game->height * 64 - 44);
+	free(str);
 }

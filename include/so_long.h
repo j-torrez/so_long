@@ -16,6 +16,7 @@ typedef struct s_game
 	int 		width;
 	int 		height;
 	int			steps;
+	int			collectibles;
 	int32_t		position_x;
 	int32_t		position_y;
 	mlx_t		*mlx;
@@ -44,6 +45,7 @@ typedef struct s_img
 	mlx_image_t *exit_open;
 	mlx_image_t *moves_print;
 	mlx_image_t *moves_nbr;
+	mlx_image_t *collectibles_nbr;
 } t_img;
 
 
@@ -74,4 +76,6 @@ int	get_character_pos(t_game *game, char c);
 int	get_exit_pos(t_game *game, char c );
 void	string_to_screen(t_game *game);
 void	print_moves(t_game *game);
+int	count_collectibles(t_game *game);
+void	print_collectibles(t_game *game);
 #endif

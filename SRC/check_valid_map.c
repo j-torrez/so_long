@@ -17,7 +17,7 @@ void check_extension (char *word)
 
 void validate_map_content (int i)
 {
-	if (!(ft_strchr("01CEP\n", i)))
+	if (!(ft_strchr("01CEPX\n", i)))
 	{
 		error_msg("Invalid characters\n");
 	}

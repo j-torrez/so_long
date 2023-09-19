@@ -46,7 +46,7 @@ t_img	*load_collectible_texture(mlx_t *mlx, t_img *img)
 t_img	*load_main_character_texture(mlx_t *mlx, t_img *img)
 {
 	mlx_texture_t *character;
-	character = mlx_load_png("./Sprites/capi.png");
+	character = mlx_load_png("./Sprites/cat.png");
 	if (!character)
 		error_msg("Problem loading character image");
 	img->character = mlx_texture_to_image(mlx, character);

@@ -41,6 +41,31 @@ int	count_collectibles(t_game *game)
 	return i;
 }
 
+/*
+mlx_img_t (Review Documentation) 
+ * @param instances An instance carrying the X, Y and Z location data.
+ * @param count The element count of the instances array.
+ * @param enabled If true the image is drawn onto the screen, else it's not.
+ * Check generate_map.c, function to generate collectible, remember Collectibles pixels are different
+ * that's why we add an offset of 16P */
+void	remove_collectible(t_game *game, int y, int x)
+{
+	size_t collectible_i;
+
+	collectible_i = 0;
+	x = x * PIXELS + 16;
+	y = y * PIXELS + 16;
+
+	while (collectible_i < game->img->honey->count)
+	{
+		if (game->img->honey->instances[collectible_i].x == x && game->img->honey->instances[collectible_i].y == y)
+		{
+			game->img->honey->instances[collectible_i].enabled = false;
+		}
+		collectible_i++;
+	}
+	
+}
 void error_msg(char *msg)
 {
 	ft_putstr_fd("Error: ", 2);

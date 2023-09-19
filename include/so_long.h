@@ -25,6 +25,7 @@ typedef struct s_game
 	int			exit_pos_x;
 	int			exit_pos_y;
 	struct s_img *img;
+	mlx_image_t *character;
 } t_game;
 
 typedef struct s_map_content
@@ -78,4 +79,13 @@ void	string_to_screen(t_game *game);
 void	print_moves(t_game *game);
 int	count_collectibles(t_game *game);
 void	print_collectibles(t_game *game);
+void	remove_collectible(t_game *game, int y, int x);
+t_game	*move_up(t_game *game);
+t_game	*move_down(t_game *game);
+t_game	*move_right(t_game *game);
+t_game	*move_left(t_game *game);
+void	load_chara(t_game *game, char dir);
+void	move_select(t_game *game, char line, char dir);
+void	move_player(t_game *game, char line, char dir);
+void	move_hook(mlx_key_data_t keydata, void *data);
 #endif

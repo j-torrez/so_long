@@ -48,6 +48,7 @@ mlx_img_t (Review Documentation)
  * @param enabled If true the image is drawn onto the screen, else it's not.
  * Check generate_map.c, function to generate collectible, remember Collectibles pixels are different
  * that's why we add an offset of 16P */
+
 void	remove_collectible(t_game *game, int y, int x)
 {
 	size_t collectible_i;

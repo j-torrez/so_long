@@ -34,7 +34,7 @@ t_game *initialize_game_struct (char **grid)
 	game->height = height_map(grid);
 	game->grid = grid;
 	game->steps = 0;
-	game->collectibles = count_collectibles(game);
+	game->collectibles = 0;
 	game->chara_pos_x = get_character_pos(game, 'x');
 	game->chara_pos_y = get_character_pos(game, 'y');
 	game->exit_pos_x = get_exit_pos(game, 'x');

@@ -10,7 +10,7 @@ void	string_to_screen(t_game *game)
 void	print_moves(t_game *game)
 {
 	char *str;
-	str = ft_itoa(game->steps);
+	str = ft_itoa(game->steps + 1);
 	mlx_delete_image(game->mlx, game->img->moves_nbr);
 	game->img->moves_nbr = mlx_put_string(game->mlx, str, 80, game->height * 64 - 44);
 	free(str);

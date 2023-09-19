@@ -13,6 +13,7 @@ t_game	*move_up(t_game *game)
 		}
 		game->chara_pos_y -= 1;
 		game->img->character->instances[0].y -= 1 * PIXELS;
+		print_moves(game);
 		game->steps += 1;
 		
 	}
@@ -32,6 +33,7 @@ t_game	*move_down(t_game *game)
 		}
 		game->chara_pos_y += 1;
 		game->img->character->instances[0].y += 1 * PIXELS;
+		print_moves(game);
 		game->steps += 1;
 		
 	}
@@ -52,6 +54,7 @@ t_game	*move_right(t_game *game)
 		}
 		game->chara_pos_x += 1;
 		game->img->character->instances[0].x += 1 * PIXELS;
+		print_moves(game);
 		game->steps += 1;
 	}
 	return (game);
@@ -71,6 +74,7 @@ t_game	*move_left(t_game *game)
 		}
 		game->chara_pos_x -= 1;
 		game->img->character->instances[0].x -= 1 * PIXELS;
+		print_moves(game);
 		game->steps += 1;
 	}
 	return (game);

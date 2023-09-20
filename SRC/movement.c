@@ -4,7 +4,7 @@ t_game	*move_up(t_game *game)
 {
 	if(game->grid[game->chara_pos_y - 1][game->chara_pos_x] != '1' && game->grid[game->chara_pos_y - 1][game->chara_pos_x] != 'E')
 	{
-		if (game->grid[game->chara_pos_y -1][game->chara_pos_x] == 'C')
+		if (game->grid[game->chara_pos_y - 1][game->chara_pos_x] == 'C')
 		{
 			remove_collectible(game, game->chara_pos_y - 1, game->chara_pos_x);
 			print_collectibles(game);
@@ -13,6 +13,9 @@ t_game	*move_up(t_game *game)
 		}
 		game->chara_pos_y -= 1;
 		game->img->character->instances[0].y -= 1 * PIXELS;
+	
+
+	
 		print_moves(game);
 		game->steps += 1;
 		
@@ -82,14 +85,30 @@ t_game	*move_left(t_game *game)
 
 void	load_chara(t_game *game, char dir)
 {
+	int i;
+	i = 0;
+
 	if (dir == 'u')
-		mlx_put_pixel(game->img->character, 0, 0, 0);
+	{
+		mlx_image_to_window(game->mlx, game->img->character_up, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		while (game->img->character_up->count > 1)
+		{
+			game->img->character_up->instances[i].enabled = false;
+			game->img->character_up->count--;
+			i++;
+		}
+	}
+
+
 	if (dir == 'd')
 		mlx_put_pixel(game->img->character, 0, 0, 0);
 	if (dir == 'r')
 		mlx_put_pixel(game->img->character, 0, 0, 0);
 	if (dir == 'l')
 		mlx_put_pixel(game->img->character, 0, 0, 0);
+
+	
+		
 }
 
 void	move_select(t_game *game, char line, char dir)

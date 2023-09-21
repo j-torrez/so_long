@@ -4,7 +4,7 @@ t_img	*load_sky_texture(mlx_t *mlx, t_img *img)
 {
 	//Try to load image file
 	mlx_texture_t *sky;
-	sky = mlx_load_png("./Sprites/grass-tile.png");
+	sky = mlx_load_png("./Sprites/bricks2.png");
 	if (!sky)
 		error_msg("Problem loading sky image");
 	//Convert texture to a displayable image
@@ -20,7 +20,7 @@ t_img	*load_sky_texture(mlx_t *mlx, t_img *img)
 t_img	*load_tree_texture(mlx_t *mlx, t_img *img)
 {
 	mlx_texture_t *tree;
-	tree = mlx_load_png("./Sprites/bigtree.png");
+	tree = mlx_load_png("./Sprites/brick_gray.png");
 	if (!tree)
 		error_msg("Problem loading tree image");
 	img->tree = mlx_texture_to_image(mlx, tree);
@@ -59,7 +59,7 @@ t_img	*load_main_character_texture(mlx_t *mlx, t_img *img)
 t_img *load_exit_close_texture(mlx_t *mlx, t_img *img)
 {
 	mlx_texture_t *exit_close;
-	exit_close = mlx_load_png("./Sprites/piso.png");
+	exit_close = mlx_load_png("./Sprites/door.png");
 	if (!exit_close)
 		error_msg("Problem loading exit image");
 	img->exit_close = mlx_texture_to_image(mlx, exit_close);

@@ -94,4 +94,5 @@ void	move_player(t_game *game, char line, char dir);
 void	move_hook(mlx_key_data_t keydata, void *data);
 t_img	*load_character_up(mlx_t *mlx, t_img *img);
 t_img	*load_character_left(mlx_t *mlx, t_img *img);
+t_img	*load_character_down(mlx_t *mlx, t_img *img);
 #endif

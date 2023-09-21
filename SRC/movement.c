@@ -108,10 +108,29 @@ void	load_chara(t_game *game, char dir)
 	}
 
 
+	int d;
+	d = 0;
 	if (dir == 'd')
-		mlx_put_pixel(game->img->character, 0, 0, 0);
+{
+		mlx_image_to_window(game->mlx, game->img->character_down, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		while (game->img->character_down->count > 1)
+		{
+			game->img->character_down->instances[d].enabled = false;
+			game->img->character_down->count--;
+			d++;
+		}
+	}
+	if ((dir == 'u' || dir == 'r' || dir == 'l') && (game->img->character_down->count == 1))
+	{
+		game->img->character_down->instances[d].enabled = false;
+		game->img->character_down->instances[d + 1].enabled = false;
+	}
+
+
 	if (dir == 'r')
 		mlx_put_pixel(game->img->character, 0, 0, 0);
+
+
 
 	int l;
 	l = 0;

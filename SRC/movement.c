@@ -13,6 +13,7 @@ t_game	*move_up(t_game *game)
 		}
 		game->chara_pos_y -= 1;
 		game->img->character->instances[0].y -= 1 * PIXELS;
+		game->img->character->instances[0].enabled = false;
 	
 
 	

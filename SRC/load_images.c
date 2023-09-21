@@ -73,7 +73,7 @@ t_img *load_exit_close_texture(mlx_t *mlx, t_img *img)
 t_img *load_exit_open_texture(mlx_t *mlx, t_img *img)
 {
 	mlx_texture_t *exit_open;
-	exit_open = mlx_load_png("./Sprites/piso.png");
+	exit_open = mlx_load_png("./Sprites/door_open.png");
 	if (!exit_open)
 		error_msg("Problem loading exit open image");
 	img->exit_open = mlx_texture_to_image(mlx, exit_open);

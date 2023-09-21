@@ -32,14 +32,12 @@ Compare the last character of the word with .ber
 	background_image(game);
 	locate_images(game);
 	string_to_screen(game);
+	
 	mlx_key_hook(game->mlx, move_hook, game);
 
 
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 
-	ft_printf("Game width: %d\n", game->width);
-    ft_printf("Game height: %d\n", game->height);
-
-	free(game);		
+	free(game);	
 }

@@ -19,7 +19,7 @@ t_game	*move_up(t_game *game)
 	
 		print_moves(game);
 		game->steps += 1;
-		
+		check_game_status(game);
 	}
 	return (game);
 }
@@ -40,6 +40,7 @@ t_game	*move_down(t_game *game)
 		game->img->character->instances[0].enabled = false;
 		print_moves(game);
 		game->steps += 1;
+		check_game_status(game);
 		
 	}
 	return (game);
@@ -62,6 +63,7 @@ t_game	*move_right(t_game *game)
 		game->img->character->instances[0].enabled = false;
 		print_moves(game);
 		game->steps += 1;
+		check_game_status(game);
 	}
 	return (game);
 }
@@ -83,6 +85,7 @@ t_game	*move_left(t_game *game)
 		game->img->character->instances[0].enabled = false;
 		print_moves(game);
 		game->steps += 1;
+		check_game_status(game);
 	}
 	return (game);
 }

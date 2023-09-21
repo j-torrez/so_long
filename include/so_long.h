@@ -51,6 +51,7 @@ typedef struct s_img
 	mlx_image_t *moves_print;
 	mlx_image_t *moves_nbr;
 	mlx_image_t *collectibles_nbr;
+	mlx_image_t *congrats_msg;
 
 } t_img;
 
@@ -97,4 +98,5 @@ t_img	*load_character_up(mlx_t *mlx, t_img *img);
 t_img	*load_character_left(mlx_t *mlx, t_img *img);
 t_img	*load_character_down(mlx_t *mlx, t_img *img);
 t_img	*load_character_right(mlx_t *mlx, t_img *img);
+void check_game_status(t_game *game);
 #endif

@@ -38,3 +38,16 @@ t_img	*load_character_down(mlx_t *mlx, t_img *img)
 	mlx_delete_texture(character_down);
 	return (img);
 }
+
+t_img	*load_character_right(mlx_t *mlx, t_img *img)
+{
+	mlx_texture_t *character_right;
+	character_right = mlx_load_png("./Sprites/cat_right.png");
+	if (!character_right)
+		error_msg("Problem loading character image right");
+	img->character_right = mlx_texture_to_image(mlx, character_right);
+	if (!img->character_right)
+		error_msg("Problem converting texture to image");
+	mlx_delete_texture(character_right);
+	return (img);
+}

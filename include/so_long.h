@@ -45,6 +45,7 @@ typedef struct s_img
 	mlx_image_t *character_up;
 	mlx_image_t *character_down;
 	mlx_image_t *character_left;
+	mlx_image_t *character_right;
 	mlx_image_t *exit_close;
 	mlx_image_t *exit_open;
 	mlx_image_t *moves_print;
@@ -95,4 +96,5 @@ void	move_hook(mlx_key_data_t keydata, void *data);
 t_img	*load_character_up(mlx_t *mlx, t_img *img);
 t_img	*load_character_left(mlx_t *mlx, t_img *img);
 t_img	*load_character_down(mlx_t *mlx, t_img *img);
+t_img	*load_character_right(mlx_t *mlx, t_img *img);
 #endif

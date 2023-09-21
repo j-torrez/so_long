@@ -61,6 +61,7 @@ t_img	*initalize_img_struct (mlx_t *mlx)
 	img_assets = load_character_up(mlx, img_assets);
 	img_assets = load_character_left(mlx, img_assets);
 	img_assets = load_character_down(mlx, img_assets);
+	img_assets = load_character_right(mlx, img_assets);
 
 	return img_assets;
 }

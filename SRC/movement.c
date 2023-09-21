@@ -37,6 +37,7 @@ t_game	*move_down(t_game *game)
 		}
 		game->chara_pos_y += 1;
 		game->img->character->instances[0].y += 1 * PIXELS;
+		game->img->character->instances[0].enabled = false;
 		print_moves(game);
 		game->steps += 1;
 		
@@ -58,6 +59,7 @@ t_game	*move_right(t_game *game)
 		}
 		game->chara_pos_x += 1;
 		game->img->character->instances[0].x += 1 * PIXELS;
+		game->img->character->instances[0].enabled = false;
 		print_moves(game);
 		game->steps += 1;
 	}
@@ -111,7 +113,7 @@ void	load_chara(t_game *game, char dir)
 	int d;
 	d = 0;
 	if (dir == 'd')
-{
+	{
 		mlx_image_to_window(game->mlx, game->img->character_down, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
 		while (game->img->character_down->count > 1)
 		{
@@ -127,8 +129,23 @@ void	load_chara(t_game *game, char dir)
 	}
 
 
+	int r;
+	r = 0;
 	if (dir == 'r')
-		mlx_put_pixel(game->img->character, 0, 0, 0);
+	{
+		mlx_image_to_window(game->mlx, game->img->character_right, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		while (game->img->character_right->count > 1)
+		{
+			game->img->character_right->instances[r].enabled = false;
+			game->img->character_right->count--;
+			r++;
+		}
+	}
+	if ((dir == 'u' || dir == 'd' || dir == 'l') && (game->img->character_right->count == 1))
+	{
+		game->img->character_right->instances[r].enabled = false;
+		game->img->character_right->instances[r + 1].enabled = false;
+	}
 
 
 

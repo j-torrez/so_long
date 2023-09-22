@@ -6,13 +6,22 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:05:14 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 12:02:34 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:43:20 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 /* While (true) initialize an infinite loop until reaching the break
 statement*/
+static void	check_file(int fd)
+{
+	if (fd == -1)
+	{
+		perror("Error:");
+		exit(-1);
+	}
+}
+
 char	*read_map(char *map_path)
 {
 	int		fd;
@@ -20,11 +29,7 @@ char	*read_map(char *map_path)
 	char	*map_one_line; 
 
 	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error:");
-		exit(-1);
-	}
+	check_file(fd);
 	map_one_line = ft_strdup("");
 	if (!map_one_line)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:45 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:06:23 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:37:01 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 t_img	*load_sky_texture(mlx_t *mlx, t_img *img)
 {
-	//Try to load image file
-	mlx_texture_t *sky;
+	mlx_texture_t	*sky;
+
 	sky = mlx_load_png("./Sprites/bricks2.png");
 	if (!sky)
 		error_msg("Problem loading sky image");
-	//Convert texture to a displayable image
 	img->sky = mlx_texture_to_image(mlx, sky);
 	if (!img->sky)
 		error_msg("Problem converting texture to image");
 	mlx_delete_texture(sky);
 	return (img);
-	//It return a pointer
-	// to a Structure ? So how do we access that element.
 }
 
 t_img	*load_tree_texture(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *tree;
+	mlx_texture_t	*tree;
+
 	tree = mlx_load_png("./Sprites/brick_gray.png");
 	if (!tree)
 		error_msg("Problem loading tree image");
@@ -44,7 +42,8 @@ t_img	*load_tree_texture(mlx_t *mlx, t_img *img)
 
 t_img	*load_collectible_texture(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *honey;
+	mlx_texture_t	*honey;
+
 	honey = mlx_load_png("./Sprites/coin.png");
 	if (!honey)
 		error_msg("Problem loading honey image");
@@ -55,22 +54,10 @@ t_img	*load_collectible_texture(mlx_t *mlx, t_img *img)
 	return (img);
 }
 
-t_img	*load_main_character_texture(mlx_t *mlx, t_img *img)
+t_img	*load_exit_close_texture(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *character;
-	character = mlx_load_png("./Sprites/cat.png");
-	if (!character)
-		error_msg("Problem loading character image");
-	img->character = mlx_texture_to_image(mlx, character);
-	if (!img->character)
-		error_msg("Problem converting texture to image");
-	mlx_delete_texture(character);
-	return (img);
-}
+	mlx_texture_t	*exit_close;
 
-t_img *load_exit_close_texture(mlx_t *mlx, t_img *img)
-{
-	mlx_texture_t *exit_close;
 	exit_close = mlx_load_png("./Sprites/door.png");
 	if (!exit_close)
 		error_msg("Problem loading exit image");
@@ -82,9 +69,10 @@ t_img *load_exit_close_texture(mlx_t *mlx, t_img *img)
 
 }
 
-t_img *load_exit_open_texture(mlx_t *mlx, t_img *img)
+t_img	*load_exit_open_texture(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *exit_open;
+	mlx_texture_t	*exit_open;
+
 	exit_open = mlx_load_png("./Sprites/door_open.png");
 	if (!exit_open)
 		error_msg("Problem loading exit open image");

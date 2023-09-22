@@ -6,11 +6,25 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:33 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:03:22 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:07:36 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+t_img	*load_main_character_texture(mlx_t *mlx, t_img *img)
+{
+	mlx_texture_t	*character;
+
+	character = mlx_load_png("./Sprites/cat.png");
+	if (!character)
+		error_msg("Problem loading character image");
+	img->character = mlx_texture_to_image(mlx, character);
+	if (!img->character)
+		error_msg("Problem converting texture to image");
+	mlx_delete_texture(character);
+	return (img);
+}
 
 t_img	*load_character_up(mlx_t *mlx, t_img *img)
 {

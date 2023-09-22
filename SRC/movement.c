@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:05:06 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:06:19 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:11:56 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 t_game	*move_up(t_game *game)
 {
-	if(game->grid[game->chara_pos_y - 1][game->chara_pos_x] != '1' && game->grid[game->chara_pos_y - 1][game->chara_pos_x] != 'E')
+	if (game->grid[game->chara_pos_y - 1][game->chara_pos_x] != '1' 
+		&& game->grid[game->chara_pos_y - 1][game->chara_pos_x] != 'E')
 	{
 		if (game->grid[game->chara_pos_y - 1][game->chara_pos_x] == 'C')
 		{
@@ -27,9 +28,6 @@ t_game	*move_up(t_game *game)
 		game->chara_pos_y -= 1;
 		game->img->character->instances[0].y -= 1 * PIXELS;
 		game->img->character->instances[0].enabled = false;
-	
-
-	
 		print_moves(game);
 		game->steps += 1;
 		check_game_status(game);
@@ -39,7 +37,8 @@ t_game	*move_up(t_game *game)
 
 t_game	*move_down(t_game *game)
 {
-	if(game->grid[game->chara_pos_y + 1][game->chara_pos_x] != '1' && game->grid[game->chara_pos_y + 1][game->chara_pos_x] != 'E')
+	if (game->grid[game->chara_pos_y + 1][game->chara_pos_x] != '1' 
+	&& game->grid[game->chara_pos_y + 1][game->chara_pos_x] != 'E')
 	{
 		if (game->grid[game->chara_pos_y + 1][game->chara_pos_x] == 'C')
 		{
@@ -54,7 +53,6 @@ t_game	*move_down(t_game *game)
 		print_moves(game);
 		game->steps += 1;
 		check_game_status(game);
-		
 	}
 	return (game);
 }
@@ -105,12 +103,13 @@ t_game	*move_left(t_game *game)
 
 void	load_chara(t_game *game, char dir)
 {
-	int i;
-	i = 0;
+	int	i;
 
+	i = 0;
 	if (dir == 'u')
 	{
-		mlx_image_to_window(game->mlx, game->img->character_up, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		mlx_image_to_window(game->mlx, game->img->character_up, 
+			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
 		while (game->img->character_up->count > 1)
 		{
 			game->img->character_up->instances[i].enabled = false;
@@ -118,7 +117,8 @@ void	load_chara(t_game *game, char dir)
 			i++;
 		}
 	}
-	if ((dir == 'd' || dir == 'r' || dir == 'l') && (game->img->character_up->count == 1))
+	if ((dir == 'd' || dir == 'r' || dir == 'l') 
+		&& (game->img->character_up->count == 1))
 	{
 		game->img->character_up->instances[i].enabled = false;
 		game->img->character_up->instances[i + 1].enabled = false;
@@ -126,11 +126,12 @@ void	load_chara(t_game *game, char dir)
 	}
 
 
-	int d;
+	int	d;
 	d = 0;
 	if (dir == 'd')
 	{
-		mlx_image_to_window(game->mlx, game->img->character_down, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		mlx_image_to_window(game->mlx, game->img->character_down, 
+			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
 		while (game->img->character_down->count > 1)
 		{
 			game->img->character_down->instances[d].enabled = false;
@@ -138,7 +139,8 @@ void	load_chara(t_game *game, char dir)
 			d++;
 		}
 	}
-	if ((dir == 'u' || dir == 'r' || dir == 'l') && (game->img->character_down->count == 1))
+	if ((dir == 'u' || dir == 'r' || dir == 'l') 
+		&& (game->img->character_down->count == 1))
 	{
 		game->img->character_down->instances[d].enabled = false;
 		game->img->character_down->instances[d + 1].enabled = false;
@@ -149,7 +151,8 @@ void	load_chara(t_game *game, char dir)
 	r = 0;
 	if (dir == 'r')
 	{
-		mlx_image_to_window(game->mlx, game->img->character_right, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		mlx_image_to_window(game->mlx, game->img->character_right, 
+			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
 		while (game->img->character_right->count > 1)
 		{
 			game->img->character_right->instances[r].enabled = false;
@@ -157,19 +160,19 @@ void	load_chara(t_game *game, char dir)
 			r++;
 		}
 	}
-	if ((dir == 'u' || dir == 'd' || dir == 'l') && (game->img->character_right->count == 1))
+	if ((dir == 'u' || dir == 'd' || dir == 'l') 
+		&& (game->img->character_right->count == 1))
 	{
 		game->img->character_right->instances[r].enabled = false;
 		game->img->character_right->instances[r + 1].enabled = false;
 	}
 
-
-
 	int l;
 	l = 0;
 	if (dir == 'l')
 	{
-		mlx_image_to_window(game->mlx, game->img->character_left, game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
+		mlx_image_to_window(game->mlx, game->img->character_left, 
+			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
 		while (game->img->character_left->count > 1)
 		{
 			game->img->character_left->instances[l].enabled = false;
@@ -177,14 +180,12 @@ void	load_chara(t_game *game, char dir)
 			l++;
 		}
 	}
-	if ((dir == 'd' || dir == 'r' || dir == 'u') && (game->img->character_left->count == 1))
+	if ((dir == 'd' || dir == 'r' || dir == 'u') 
+		&& (game->img->character_left->count == 1))
 	{
 		game->img->character_left->instances[l].enabled = false;
 		game->img->character_left->instances[l + 1].enabled = false;
 	}
-
-	
-		
 }
 
 void	move_select(t_game *game, char line, char dir)

@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:33 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:06:24 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:03:22 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_img	*load_character_up(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *character_up;
+	mlx_texture_t	*character_up;
+
 	character_up = mlx_load_png("./Sprites/cat_up.png");
 	if (!character_up)
 		error_msg("Problem loading character image up");
@@ -27,7 +28,8 @@ t_img	*load_character_up(mlx_t *mlx, t_img *img)
 
 t_img	*load_character_left(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *character_left;
+	mlx_texture_t	*character_left;
+
 	character_left = mlx_load_png("./Sprites/cat_left.png");
 	if (!character_left)
 		error_msg("Problem loading character image left");
@@ -40,7 +42,8 @@ t_img	*load_character_left(mlx_t *mlx, t_img *img)
 
 t_img	*load_character_down(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *character_down;
+	mlx_texture_t	*character_down;
+
 	character_down = mlx_load_png("./Sprites/cat_down.png");
 	if (!character_down)
 		error_msg("Problem loading character image down");
@@ -53,7 +56,8 @@ t_img	*load_character_down(mlx_t *mlx, t_img *img)
 
 t_img	*load_character_right(mlx_t *mlx, t_img *img)
 {
-	mlx_texture_t *character_right;
+	mlx_texture_t	*character_right;
+
 	character_right = mlx_load_png("./Sprites/cat_right.png");
 	if (!character_right)
 		error_msg("Problem loading character image right");

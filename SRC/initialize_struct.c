@@ -6,17 +6,17 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:16 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:06:25 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:01:04 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_game *initialize_data (char *map)
+t_game	*initialize_data(char *map)
 {
 	t_game	*data;
 	char	*map_as_one_line;
-	char 	**map_as_arr; 
+	char	**map_as_arr; 
 
 	map_as_one_line = read_map(map);
 	map_as_arr = map_as_array(map_as_one_line);
@@ -33,15 +33,14 @@ t_game *initialize_data (char *map)
 	return (data);
 }
 
-t_game *initialize_game_struct (char **grid)
+t_game	*initialize_game_struct(char **grid)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)ft_calloc(1, sizeof(t_game));
 
 	if (!game)
 		ft_printf("Error allocating memory for the game struct");
-	
 	game->width = width_map(grid);
 	game->height = height_map(grid);
 	game->grid = grid;
@@ -55,12 +54,11 @@ t_game *initialize_game_struct (char **grid)
 	return (game);
 }
 
-t_img	*initalize_img_struct (mlx_t *mlx)
+t_img	*initalize_img_struct(mlx_t *mlx)
 {
 	t_img	*img_assets;
 
 	img_assets = (t_img *)ft_calloc(1, sizeof(t_img));
-	
 	if (!img_assets)
 		ft_printf ("Error allocating memory for images asssets");
 
@@ -75,5 +73,5 @@ t_img	*initalize_img_struct (mlx_t *mlx)
 	img_assets = load_character_down(mlx, img_assets);
 	img_assets = load_character_right(mlx, img_assets);
 
-	return img_assets;
+	return (img_assets);
 }

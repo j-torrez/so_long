@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:45 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:59:07 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:55:53 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_img	*load_tree_texture(mlx_t *mlx, t_img *img)
 {
 	mlx_texture_t	*tree;
 
-	tree = mlx_load_png("./Sprites/brick_gray.png");
+	tree = mlx_load_png("./Sprites/crystal.png");
 	if (!tree)
 		error_msg("Problem loading tree image");
 	img->tree = mlx_texture_to_image(mlx, tree);

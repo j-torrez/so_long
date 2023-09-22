@@ -6,18 +6,17 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:03:19 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:06:31 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 10:40:53 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void check_extension (char *word)
+void	check_extension(char *word)
 {
-	int word_length;
+	int	word_length;
 
 	word_length = ft_strlen(word);
-
 	if (word_length >= 11)
 	{
 		if (ft_strncmp(word + word_length - 4, ".ber", 4))
@@ -27,19 +26,18 @@ void check_extension (char *word)
 	}
 }
 
-void validate_map_content (int i)
+void	validate_map_content(int i)
 {
 	if (!(ft_strchr("01CEPX\n", i)))
 	{
 		error_msg("Invalid characters\n");
 	}
-	
 }
 
-void check_map_content(char *map_as_one_line)
+void	check_map_content(char *map_as_one_line)
 {
-	t_map_content content;
-	int	i;
+	t_map_content	content;
+	int				i;
 
 	content.exit = 0;
 	content.collectible = 0;
@@ -54,17 +52,17 @@ void check_map_content(char *map_as_one_line)
 			content.collectible++;
 		if (map_as_one_line[i] == 'P')
 			content.position++;
-		else (validate_map_content(map_as_one_line[i]));
-	i++; 
+		else 
+			(validate_map_content(map_as_one_line[i]));
+		i++; 
 	}
 	if (content.exit != 1 || content.collectible < 1 || content.position != 1)
 	{
-		ft_printf("The map has\n %d Exit \n %d Collectibles \n %d Positions\n", content.exit, content.collectible, content.position);
 		error_msg("Please check the content of your map\n");
 	}
 }
 
-void check_map_empty(char *map_as_one_line)
+void	check_map_empty(char *map_as_one_line)
 {
 	int	i; 
 

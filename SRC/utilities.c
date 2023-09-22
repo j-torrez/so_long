@@ -6,34 +6,34 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:05:35 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:05:40 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:48:06 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int height_map(char **map_as_array)
+int	height_map(char **map_as_array)
 {
-	int i; 
+	int	i; 
 
 	i = 0;
 	while (map_as_array[i])
 	{
 		i++;
 	}
-	return i;
+	return (i);
 }
 
-int width_map(char **map_as_array)
+int	width_map(char **map_as_array)
 {
 	return (ft_strlen(map_as_array[0]));
 }
 
 int	count_collectibles(t_game *game)
 {
-	int y; 
-	int x;
-	int i;
+	int	y; 
+	int	x;
+	int	i;
 
 	y = 0;
 	i = 0;
@@ -50,20 +50,24 @@ int	count_collectibles(t_game *game)
 		}
 		y++;
 	}
-	return i;
+	return (i);
 }
 
-/*
-mlx_img_t (Review Documentation) 
- * @param instances An instance carrying the X, Y and Z location data.
- * @param count The element count of the instances array.
+/* 
+	mlx_img_t (Review Documentation) 
+ * @param instances An instance carrying 
+ the X, Y and Z location data.
+ * @param count The element count 
+ of the instances array.
  * @param enabled If true the image is drawn onto the screen, else it's not.
- * Check generate_map.c, function to generate collectible, remember Collectibles pixels are different
- * that's why we add an offset of 16P */
+ * Check generate_map.c, function 
+ * to generate collectible, remember Collectibles pixels are different
+ * that's why we add an 
+ * offset of 16P */
 
 void	remove_collectible(t_game *game, int y, int x)
 {
-	size_t collectible_i;
+	size_t	collectible_i;
 
 	collectible_i = 0;
 	x = x * PIXELS + 16;
@@ -71,15 +75,16 @@ void	remove_collectible(t_game *game, int y, int x)
 
 	while (collectible_i < game->img->honey->count)
 	{
-		if (game->img->honey->instances[collectible_i].x == x && game->img->honey->instances[collectible_i].y == y)
+		if (game->img->honey->instances[collectible_i].x == x && 
+			game->img->honey->instances[collectible_i].y == y)
 		{
 			game->img->honey->instances[collectible_i].enabled = false;
 		}
 		collectible_i++;
 	}
-	
 }
-void error_msg(char *msg)
+
+void	error_msg(char *msg)
 {
 	ft_putstr_fd("Error: ", 2);
 	ft_putendl_fd(msg, 2);

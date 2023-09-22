@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:05:14 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:44:31 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:02:34 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ char	**map_as_array(char *map_one_line)
 	map_as_arr = ft_split(map_one_line, delimiter);
 	return (map_as_arr);
 }
-

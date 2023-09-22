@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:03:58 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:57:22 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:01:41 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	render_map(t_game *data, int y, int x)
 	int	img_size;
 
 	img_size = 32;
-
 	if (data->grid[y][x] == '1')
 		if (mlx_image_to_window (data->mlx, data->img->tree, 
 				x * PIXELS, y * PIXELS) < 0)
@@ -71,4 +70,3 @@ void	locate_images(t_game *data)
 		y++;
 	}
 }
-

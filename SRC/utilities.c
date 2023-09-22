@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:05:35 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:48:06 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:58:10 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	remove_collectible(t_game *game, int y, int x)
 	collectible_i = 0;
 	x = x * PIXELS + 16;
 	y = y * PIXELS + 16;
-
 	while (collectible_i < game->img->honey->count)
 	{
 		if (game->img->honey->instances[collectible_i].x == x && 

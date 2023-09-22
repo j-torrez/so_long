@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:03:19 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 10:40:53 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:00:51 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	check_map_content(char *map_as_one_line)
 	content.exit = 0;
 	content.collectible = 0;
 	content.position = 0; 
-
 	i = 0;
 	while (map_as_one_line[i] != '\0')
 	{

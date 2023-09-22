@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:55:20 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:56:08 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct s_img
 	mlx_image_t	*congrats_msg;
 
 }	t_img;
-
 
 char	*read_map(char *map);
 char	**map_as_array(char *map_one_line);

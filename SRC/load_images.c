@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:45 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:37:01 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:59:07 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ t_img	*load_exit_close_texture(mlx_t *mlx, t_img *img)
 		error_msg("Problem converting texture to image");
 	mlx_delete_texture(exit_close);
 	return (img);
-
 }
 
 t_img	*load_exit_open_texture(mlx_t *mlx, t_img *img)
@@ -81,5 +80,4 @@ t_img	*load_exit_open_texture(mlx_t *mlx, t_img *img)
 		error_msg("Problem converting texture to image");
 	mlx_delete_texture(exit_open);
 	return (img);
-
 }

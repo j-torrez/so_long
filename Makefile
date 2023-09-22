@@ -6,7 +6,7 @@
 #    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
-#    Updated: 2023/09/21 13:38:45 by jtorrez-         ###   ########.fr        #
+#    Updated: 2023/09/22 12:18:43 by jtorrez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = so_long
 LIBFT = ./Libft/libft.a
 MLX42 = ../../MLX42/build/libmlx42.a
 INCLUDE = -I./include
-SRC = SRC/main.c SRC/parse_map.c SRC/check_valid_map.c SRC/check_valid_map1.c initialize_struct.c utilities.c SRC/load_images.c SRC/generate_map.c SRC/get_position.c SRC/screen_data.c SRC/movement.c SRC/load_character_images.c SRC/game_state.c /
+SRC = SRC/main.c SRC/parse_map.c SRC/check_valid_map.c SRC/check_valid_map1.c initialize_struct.c utilities.c SRC/load_images.c SRC/generate_map.c SRC/get_position.c SRC/screen_data.c SRC/movement.c SRC/load_character_images.c SRC/game_state.c SRC/load_character.c /
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 

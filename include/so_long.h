@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:56:08 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:28:41 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,8 @@ t_img	*load_character_left(mlx_t *mlx, t_img *img);
 t_img	*load_character_down(mlx_t *mlx, t_img *img);
 t_img	*load_character_right(mlx_t *mlx, t_img *img);
 void	check_game_status(t_game *game);
+void	load_character_move_up(t_game *game, char dir);
+void	load_character_move_down(t_game *game, char dir);
+void	load_character_move_right(t_game *game, char dir);
+void	load_character_move_left(t_game *game, char dir);
 #endif

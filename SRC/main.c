@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:55 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 17:29:38 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/23 12:12:48 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	image = initalize_img_struct(game->mlx);
-	flood_fill(game);
 	game->img = image;
 	background_image(game);
 	locate_images(game);

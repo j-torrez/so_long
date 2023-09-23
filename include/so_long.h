@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/23 13:42:53 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/23 15:33:16 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	load_character_move_up(t_game *game, char dir);
 void	load_character_move_down(t_game *game, char dir);
 void	load_character_move_right(t_game *game, char dir);
 void	load_character_move_left(t_game *game, char dir);
-void	flood_fill(t_game *game);
+void flood_fill(char **grid, int sr, int sc, char old_position, char new_position);
 t_game *create_duplicate(t_game *game);
+void	test_case(t_game *game);
 #endif

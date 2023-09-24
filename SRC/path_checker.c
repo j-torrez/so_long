@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/24 14:26:35 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:44:52 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	test_case(t_game *game)
     int y_space;
 
     copy = create_duplicate(game);
-    flood_fill(copy->grid, copy->free_space_y, copy->free_space_x, copy->height, copy->width, '0', 'P');
+    printf("TOTAL COLLECTIBLES BEFORE: %d\n", count_collectibles(copy));
+    flood_fill(copy->grid, copy->chara_pos_x, copy->chara_pos_y, copy->height, copy->width, 'C', '0', 'E', 'N');
     i = copy->chara_pos_x;
     j = copy->chara_pos_y;
     
@@ -32,6 +33,7 @@ void	test_case(t_game *game)
     ft_printf("Character Position Y: %d \n", j);
     ft_printf("First instance free space X: %d \n", x_space);
     ft_printf("First instance free space Y: %d\n", y_space);
+    printf("TOTAL COLLECTIBLES AFTER: %d\n", count_collectibles(copy));
 
     i = 0;
     while (i < copy->height)
@@ -47,23 +49,23 @@ void	test_case(t_game *game)
 	}
 }
 
-void flood_fill(char **grid, int sr, int sc, int row, int col, char free_space, char position)
+void flood_fill(char **grid, int sr, int sc, int row, int col, char free_space, char collectibles, char exit, char position)
 {
   if (sr < 0 || sr >= row || sc < 0 || sc >= col)
     {
         return;
     }
     
-  if (grid[sr][sc] != free_space)
+  if (grid[sr][sc] != free_space && grid[sr][sc] != collectibles && grid[sr][sc] != exit)
     {
         return;
     }
 
     grid[sr][sc] = position;
-    flood_fill(grid, sr - 1, sc, row, col, free_space, position);
-    flood_fill(grid, sr + 1, sc, row, col, free_space, position);
-    flood_fill(grid, sr, sc - 1, row, col, free_space, position);
-    flood_fill(grid, sr, sc + 1, row, col, free_space, position);
+    flood_fill(grid, sr - 1, sc, row, col, free_space, collectibles, exit, position);
+    flood_fill(grid, sr + 1, sc, row, col, free_space, collectibles, exit, position);
+    flood_fill(grid, sr, sc - 1, row, col, free_space, collectibles, exit, position);
+    flood_fill(grid, sr, sc + 1, row, col, free_space, collectibles, exit, position);
 }
 
 

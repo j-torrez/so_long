@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:16 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 11:57:36 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/24 13:19:00 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ t_game	*initialize_game_struct(char **grid)
 	game->chara_pos_y = get_character_pos(game, 'y');
 	game->exit_pos_x = get_exit_pos(game, 'x');
 	game->exit_pos_y = get_exit_pos(game, 'y');
+	game->free_space_x = find_free_space(game, 'x');
+	game->free_space_y = find_free_space(game, 'y');
 	return (game);
 }
 

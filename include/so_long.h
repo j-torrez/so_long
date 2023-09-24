@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/23 15:33:16 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/24 13:31:18 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_game
 	int				chara_pos_y;
 	int				exit_pos_x;
 	int				exit_pos_y;
+	int				free_space_x;
+	int				free_space_y;
 	struct s_img	*img;
 	mlx_image_t		*character;
 }	t_game;
@@ -114,7 +116,8 @@ void	load_character_move_up(t_game *game, char dir);
 void	load_character_move_down(t_game *game, char dir);
 void	load_character_move_right(t_game *game, char dir);
 void	load_character_move_left(t_game *game, char dir);
-void flood_fill(char **grid, int sr, int sc, char old_position, char new_position);
+void flood_fill(char **grid, int sr, int sc, int row, int col, char free_space, char position);
 t_game *create_duplicate(t_game *game);
 void	test_case(t_game *game);
+int find_free_space (t_game *game, char c);
 #endif

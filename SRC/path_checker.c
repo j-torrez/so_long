@@ -6,15 +6,15 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/25 16:16:43 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:51:14 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	test_case(t_game *game)
+void    test_case(t_game *game)
 {
-    t_game *copy;
+    t_game  *copy;
     int total_exit_count;
     int total_collectible_count;
 
@@ -26,6 +26,8 @@ void	test_case(t_game *game)
 
     if (total_collectible_count != 0 || total_exit_count != 0 )
         error_msg("There is not a valid path in the map");
+
+    free_grid(copy->grid, copy->height);
 }
 
 void flood_fill(char **grid, int sr, int sc, int row, int col, char free_space, char collectibles, char exit, char position)
@@ -47,6 +49,18 @@ void flood_fill(char **grid, int sr, int sc, int row, int col, char free_space, 
     flood_fill(grid, sr, sc + 1, row, col, free_space, collectibles, exit, position);
 }
 
+void    free_grid(char **grid, int height)
+{
+    int	i;
+
+	i = 0;
+	while (i < height)
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
+}
 
 t_game *create_duplicate(t_game *game)
 {
@@ -94,5 +108,6 @@ int count_exit(t_game *game)
 		}
 		i++;	
 	}
-    return (exit);
+    return(exit);
 }
+

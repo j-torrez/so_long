@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:16 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/25 16:02:03 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:12:16 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_game	*initialize_data(char *map)
 	check_rectangular_map(map_as_arr);
 	data = initialize_game_struct(map_as_arr);
 	check_walls_map(data);
+	test_case(data);
 	free(map_as_one_line);
 	return (data);
 }

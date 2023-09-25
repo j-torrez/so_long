@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/25 16:08:00 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:13:46 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	test_case(t_game *game)
     total_collectible_count = count_collectibles(copy);
     total_exit_count = count_exit(copy);
 
-    if (total_collectible_count != 0 && total_exit_count != 0 )
+    if (total_collectible_count != 0 || total_exit_count != 0 )
         error_msg("There is not a valid path in the map");
 
     i = copy->chara_pos_x;

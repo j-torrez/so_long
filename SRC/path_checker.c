@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/24 15:44:52 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:08:00 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,20 @@ void	test_case(t_game *game)
     int j;
     int x_space;
     int y_space;
+    int total_exit_count;
+    int total_collectible_count;
 
     copy = create_duplicate(game);
     printf("TOTAL COLLECTIBLES BEFORE: %d\n", count_collectibles(copy));
+    printf("TOTAL EXIT BEFORE: %d\n", count_exit(copy));
     flood_fill(copy->grid, copy->chara_pos_x, copy->chara_pos_y, copy->height, copy->width, 'C', '0', 'E', 'N');
+
+    total_collectible_count = count_collectibles(copy);
+    total_exit_count = count_exit(copy);
+
+    if (total_collectible_count != 0 && total_exit_count != 0 )
+        error_msg("There is not a valid path in the map");
+
     i = copy->chara_pos_x;
     j = copy->chara_pos_y;
     
@@ -34,6 +44,7 @@ void	test_case(t_game *game)
     ft_printf("First instance free space X: %d \n", x_space);
     ft_printf("First instance free space Y: %d\n", y_space);
     printf("TOTAL COLLECTIBLES AFTER: %d\n", count_collectibles(copy));
+    printf("TOTAL EXIT AFTER: %d\n", count_exit(copy));
 
     i = 0;
     while (i < copy->height)
@@ -102,30 +113,26 @@ t_game *create_duplicate(t_game *game)
 
     return	copy;	
 }
-
-int find_free_space (t_game *game, char c)
+int count_exit(t_game *game)
 {
+    int i;
+    int j;
+    int exit;
 
-    int x; 
-    int y;
-
-    y = 0;
-    while (y < game->height)
-    {
-        x = 0;
-        while (x < game->width)
-        {
-            if (game->grid[y][x] == '0')
+    exit = 0;
+    i = 0;
+    while (i < game->height)
+	{
+		j = 0;
+		while (j < game->width)
+		{
+			if (game->grid[i][j] == 'E')
             {
-                
-                if (c == 'x')
-                    return x;
-                else
-                    return y;
+                exit++;
             }
-            x++;
-        }
-        y++;
-    }
-    return (0);    
+            j++;
+		}
+		i++;	
+	}
+    return (exit);
 }

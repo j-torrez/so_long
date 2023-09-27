@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/26 13:37:07 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:32:51 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ void	free_grid(char **grid, int height)
 t_game	*create_duplicate(t_game *game)
 {
 	t_game	*copy;
+	int		i;
 
+	i = 0;
 	copy = (t_game *)malloc(sizeof(t_game));
 	if (!copy) 
 	{
@@ -80,7 +82,7 @@ t_game	*create_duplicate(t_game *game)
 	{
 		free(copy);
 	}
-	for (int i = 0; i < game->height; i++) 
+	while (i < game->height) 
 	{
 		copy->grid[i] = ft_strdup(game->grid[i]);
 		if (!copy->grid[i]) 
@@ -88,6 +90,7 @@ t_game	*create_duplicate(t_game *game)
 			free(copy->grid);
 			free(copy);
 		}
+		i++;
 	}
 	return (copy);
 }

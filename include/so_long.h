@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/25 16:51:40 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:27:18 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../../MLX42/include/MLX42/MLX42.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>

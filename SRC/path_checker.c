@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/27 21:32:51 by johnbosco        ###   ########.fr       */
+/*   Updated: 2023/10/03 12:32:50 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,11 @@ t_game	*create_duplicate(t_game *game)
 	i = 0;
 	copy = (t_game *)malloc(sizeof(t_game));
 	if (!copy) 
-	{
 		error_msg("Error allocating memory");
-	}
 	ft_memcpy(copy, game, sizeof(t_game));
 	copy->grid = (char **)malloc(game->height * sizeof(char *));
 	if (!copy->grid) 
-	{
 		free(copy);
-	}
 	while (i < game->height) 
 	{
 		copy->grid[i] = ft_strdup(game->grid[i]);

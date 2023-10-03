@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/03 12:32:50 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:23:40 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	test_case(t_game *game)
 
 	copy = create_duplicate(game);
 	flood_fill(copy->grid, copy->chara_pos_x, 
-		copy->chara_pos_y, copy->height, copy->width, 'C', '0', 'E', 'N');
+		copy->chara_pos_y, copy->height, copy->width, '0', 'C', 'E', 'N');
 	total_collectible_count = count_collectibles(copy);
 	total_exit_count = count_exit(copy);
 	if (total_collectible_count != 0 || total_exit_count != 0)

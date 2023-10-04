@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/03 16:23:23 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:11:49 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../../../MLX42/include/MLX42/MLX42.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -38,6 +38,7 @@ typedef struct s_game
 	int				exit_pos_y;
 	int				free_space_x;
 	int				free_space_y;
+	int				coins;
 	struct s_img	*img;
 	mlx_image_t		*character;
 }	t_game;
@@ -116,9 +117,7 @@ void	load_character_move_up(t_game *game, char dir);
 void	load_character_move_down(t_game *game, char dir);
 void	load_character_move_right(t_game *game, char dir);
 void	load_character_move_left(t_game *game, char dir);
-void flood_fill(char **grid, int sr, int sc, int row, int col, char free_space, char collectibles, char exit, char position);
-t_game *create_duplicate(t_game *game);
-void	test_case(t_game *game);
-int count_exit(t_game *game);
-void    free_grid(char **grid, int height);
+void	free_grid(char **grid, size_t height);
+int	check_path(t_game *temp, size_t y, size_t x);
+void	flood_fill(t_game *game);
 #endif

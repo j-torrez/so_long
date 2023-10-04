@@ -3,58 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   path_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:00:24 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/03 16:23:40 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:14:51 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	test_case(t_game *game)
+void	free_grid(char **grid, size_t height)
 {
-	t_game	*copy;
-	int		total_exit_count;
-	int		total_collectible_count;
-
-	copy = create_duplicate(game);
-	flood_fill(copy->grid, copy->chara_pos_x, 
-		copy->chara_pos_y, copy->height, copy->width, '0', 'C', 'E', 'N');
-	total_collectible_count = count_collectibles(copy);
-	total_exit_count = count_exit(copy);
-	if (total_collectible_count != 0 || total_exit_count != 0)
-		error_msg("There is not a valid path in the map");
-	free_grid(copy->grid, copy->height);
-}
-
-void	flood_fill(char **grid, int sr, int sc, int row, 
-			int col, char free_space, char collectibles, 
-			char exit, char position)
-{
-	if (sr < 0 || sr >= row || sc < 0 || sc >= col)
-	{
-		return ;
-	}
-	if (grid[sr][sc] != free_space && grid[sr][sc] 
-		!= collectibles && grid[sr][sc] != exit)
-	{
-		return ;
-	}
-	grid[sr][sc] = position;
-	flood_fill(grid, sr - 1, sc, row, col, free_space, 
-		collectibles, exit, position);
-	flood_fill(grid, sr + 1, sc, row, col, free_space, 
-		collectibles, exit, position);
-	flood_fill(grid, sr, sc - 1, row, col, free_space, 
-		collectibles, exit, position);
-	flood_fill(grid, sr, sc + 1, row, col, free_space, 
-		collectibles, exit, position);
-}
-
-void	free_grid(char **grid, int height)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < height)
@@ -65,52 +25,52 @@ void	free_grid(char **grid, int height)
 	free(grid);
 }
 
-t_game	*create_duplicate(t_game *game)
+int	check_path(t_game *temp, size_t y, size_t x)
 {
-	t_game	*copy;
-	int		i;
-
-	i = 0;
-	copy = (t_game *)malloc(sizeof(t_game));
-	if (!copy) 
-		error_msg("Error allocating memory");
-	ft_memcpy(copy, game, sizeof(t_game));
-	copy->grid = (char **)malloc(game->height * sizeof(char *));
-	if (!copy->grid) 
-		free(copy);
-	while (i < game->height) 
+	if (temp->grid[y][x] == '1')
+		return (0);
+	if (temp->grid[y][x] == 'C')
+		temp->coins--;
+	if (temp->grid[y][x] == 'E')
 	{
-		copy->grid[i] = ft_strdup(game->grid[i]);
-		if (!copy->grid[i]) 
-		{
-			free(copy->grid);
-			free(copy);
-		}
-		i++;
+		temp->exit_pos_x = 1;
+		return (0);
 	}
-	return (copy);
+	temp->grid[y][x] = '1';
+	if (check_path(temp, y + 1, x))
+		return (1);
+	if (check_path(temp, y - 1, x))
+		return (1);
+	if (check_path(temp, y, x + 1))
+		return (1);
+	if (check_path(temp, y, x - 1))
+		return (1);
+	return (0);
 }
 
-int	count_exit(t_game *game)
+void	flood_fill(t_game *game)
 {
-	int	i;
-	int	j;
-	int	exit;
+	t_game	temp;
+	int		i;
 
-	exit = 0;
+	temp.height = game->height;
+	temp.width = game->width;
+	temp.collectibles = game->collectibles;
+	temp.chara_pos_x = game->chara_pos_x;
+	temp.chara_pos_y = game->chara_pos_y;
+	temp.exit_pos_x = 0;
+	temp.coins = game->coins;
+	temp.grid = (char **)malloc(temp.height * sizeof(char *));
+	if (!temp.grid)
+		error_msg("Memory allocation failed");
 	i = 0;
-	while (i < game->height)
+	while (i < temp.height)
 	{
-		j = 0;
-		while (j < game->width)
-		{
-			if (game->grid[i][j] == 'E')
-			{
-				exit++;
-			}
-			j++;
-		}
+		temp.grid[i] = ft_strdup(game->grid[i]);
 		i++;
 	}
-	return (exit);
+	check_path(&temp, temp.chara_pos_y, temp.chara_pos_x);
+	if (!(temp.exit_pos_x == 1 && temp.coins == 0))
+		error_msg("No valid path available");
+	free_grid(temp.grid, temp.height);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:55 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/24 12:25:41 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:04:54 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char *argv[])
 	}
 	check_extension(argv[1]);
 	game = initialize_data(argv[1]);
-	test_case(game);
 	game->mlx = mlx_init(game->width * PIXELS, game->height * PIXELS, 
 			"so_long", true);
 	if (!game->mlx)

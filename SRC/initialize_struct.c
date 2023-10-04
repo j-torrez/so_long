@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_struct.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:16 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/25 16:12:16 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:12:14 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_game	*initialize_data(char *map)
 	check_rectangular_map(map_as_arr);
 	data = initialize_game_struct(map_as_arr);
 	check_walls_map(data);
-	test_case(data);
+	flood_fill(data);
 	free(map_as_one_line);
 	return (data);
 }
@@ -46,6 +46,7 @@ t_game	*initialize_game_struct(char **grid)
 	game->chara_pos_y = get_character_pos(game, 'y');
 	game->exit_pos_x = get_exit_pos(game, 'x');
 	game->exit_pos_y = get_exit_pos(game, 'y');
+	game->coins = count_collectibles(game);
 	return (game);
 }
 

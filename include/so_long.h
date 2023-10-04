@@ -6,7 +6,7 @@
 /*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/05 01:11:49 by johnbosco        ###   ########.fr       */
+/*   Updated: 2023/10/05 01:42:21 by johnbosco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,6 @@ void	load_character_move_down(t_game *game, char dir);
 void	load_character_move_right(t_game *game, char dir);
 void	load_character_move_left(t_game *game, char dir);
 void	free_grid(char **grid, size_t height);
-int	check_path(t_game *temp, size_t y, size_t x);
+int		check_path(t_game *temp, size_t y, size_t x);
 void	flood_fill(t_game *game);
 #endif

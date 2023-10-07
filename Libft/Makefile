@@ -6,7 +6,7 @@
 #    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 17:43:54 by jtorrez-          #+#    #+#              #
-#    Updated: 2023/08/24 14:51:58 by jtorrez-         ###   ########.fr        #
+#    Updated: 2023/10/07 12:49:42 by jtorrez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC =  ft_split.c ft_itoa.c 			\
 		ft_lstclear.c ft_lstiter.c 		\
 		ft_lstmap.c get_next_line.c		\
 		get_next_line_utils.c			\
+		util_gnl.c                      \
 		ft_printf.c ft_print_int.c		\
 		ft_print_char.c					\
 		ft_print_hexa.c				    \

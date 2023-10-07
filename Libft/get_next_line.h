@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:31:14 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/08/30 15:43:43 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/07 12:48:41 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ char	*ft_strchr_line(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin_line(char const *s1, char const *s2);
 char	*get_next_line(int fd);
+size_t	gnl_strlen(const char *s);
+void	*gnl_calloc(size_t count, size_t size);
 
 #endif

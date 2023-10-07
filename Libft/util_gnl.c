@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   util_gnl.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 14:46:06 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/07 12:54:03 by jtorrez-         ###   ########.fr       */
+/*   Created: 2023/10/07 12:46:26 by jtorrez-          #+#    #+#             */
+/*   Updated: 2023/10/07 12:51:38 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+size_t	gnl_strlen(const char *s)
 {
-	int		i;
-	int		j;
-	char	*new;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if (!s1)
-		s1 = gnl_calloc(1, 1);
-	if (!s1 || !s2)
-		return (free(s1), NULL);
-	new = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
-	if (!new)
-		return (free(s1), NULL);
-	while (s1[i])
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	*gnl_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = malloc (count * size);
+	if (ptr == NULL)
+		return (NULL);
+	while (i < (count * size))
 	{
-		new[i] = s1[i];
+		(*(unsigned char *)(ptr + i)) = 0;
 		i++;
 	}
-	while (s2[j])
-		new[i++] = s2[j++];
-	new[i] = '\0';
-	return (free(s1), new);
+	return (ptr);
 }

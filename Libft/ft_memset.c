@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:40:43 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/05/12 17:02:40 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/07 12:36:16 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@
 // Filled the array with the character for each iteration
 // return s, because point to the start of memory block that was filled (newstr)
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	i;
+	unsigned char	*str;
+	size_t			i;
 
+	str = (unsigned char *)b;
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
-		((unsigned char *)s)[i++] = c;
+		str[i] = c;
+		i++;
 	}
-	return (s);
+	return (b);
 }
 /*
 int main(void)

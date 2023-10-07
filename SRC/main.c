@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johnbosco <johnbosco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:55 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/05 01:04:54 by johnbosco        ###   ########.fr       */
+/*   Updated: 2023/10/07 13:04:50 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ int	main(int argc, char *argv[])
 	game->mlx = mlx_init(game->width * PIXELS, game->height * PIXELS, 
 			"so_long", true);
 	if (!game->mlx)
-	{
 		return (EXIT_FAILURE);
-	}
 	image = initalize_img_struct(game->mlx);
 	game->img = image;
 	background_image(game);
@@ -42,5 +40,5 @@ int	main(int argc, char *argv[])
 	mlx_key_hook(game->mlx, move_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	free (game);
+	return (EXIT_SUCCESS);
 }

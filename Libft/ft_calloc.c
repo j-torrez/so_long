@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtorrez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:40:12 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/05/12 16:36:30 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/08 17:29:56 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,19 @@ initialize that total memory
 to O.	*/
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*memory;
+	void	*ptr;
+	size_t	i;
 
-	memory = malloc(count * size);
-	if (!memory)
+	i = 0;
+	ptr = malloc (count * size);
+	if (ptr == NULL)
+		return (NULL);
+	while (i < (count * size))
 	{
-		return (0);
+		(*(unsigned char *)(ptr + i)) = 0;
+		i++;
 	}
-	ft_bzero(memory, count * size);
-	return (memory);
+	return (ptr);
 }
 
 /*

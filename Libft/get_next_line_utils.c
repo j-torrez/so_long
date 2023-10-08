@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:37:01 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/08/30 15:43:33 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/08 16:57:41 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strchr_line(const char *s, int c)
 	return (0);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr_line(char const *s, unsigned int start, size_t len)
 {
 	size_t	count;
 	size_t	size;

@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:50:46 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/07 11:48:59 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/08 18:51:27 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-# include <memory.h>
 
 # define PIXELS 64
 
@@ -120,4 +119,5 @@ void	load_character_move_left(t_game *game, char dir);
 void	free_grid(char **grid, size_t height);
 int		check_path(t_game *temp, size_t y, size_t x);
 void	flood_fill(t_game *game);
+void	free_map_array(char **map_as_arr);
 #endif

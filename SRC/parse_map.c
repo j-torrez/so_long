@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:05:14 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/09/22 13:43:20 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/08 18:39:53 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*read_map(char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	check_file(fd);
-	map_one_line = ft_strdup("");
+	map_one_line = ft_calloc(1, 1);
 	if (!map_one_line)
 		return (NULL);
 	while (1)
@@ -56,4 +56,20 @@ char	**map_as_array(char *map_one_line)
 	delimiter = '\n';
 	map_as_arr = ft_split(map_one_line, delimiter);
 	return (map_as_arr);
+}
+
+void	free_map_array(char **map_as_arr)
+{
+	int	i;
+
+	i = 0;
+	if (map_as_arr)
+	{
+		while (map_as_arr[i])
+		{
+			free(map_as_arr[i]);
+			i++;
+		}
+		free(map_as_arr);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:55 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/07 13:04:50 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/08 18:51:11 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 	check_extension(argv[1]);
 	game = initialize_data(argv[1]);
 	game->mlx = mlx_init(game->width * PIXELS, game->height * PIXELS, 
-			"so_long", true);
+			"so_long", false);
 	if (!game->mlx)
 		return (EXIT_FAILURE);
 	image = initalize_img_struct(game->mlx);
@@ -40,5 +40,7 @@ int	main(int argc, char *argv[])
 	mlx_key_hook(game->mlx, move_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
+	free(game);
+	free(image);
 	return (EXIT_SUCCESS);
 }

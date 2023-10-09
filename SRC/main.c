@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:55 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/09 18:35:47 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:38:51 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	main(int argc, char *argv[])
 	t_img	*image;
 
 	if (argc != 2)
-	{
-		ft_printf("Usage: %s <map.ber>\n", argv[0]);
-		return (1); 
-	}
+		error_msg("Usage: ./so_long <./maps/valid_map1.ber>\n");
 	check_extension(argv[1]);
 	game = initialize_data(argv[1]);
 	game->mlx = mlx_init(game->width * PIXELS, game->height * PIXELS, 

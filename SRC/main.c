@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:04:55 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/08 18:51:11 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:35:47 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char *argv[])
 	mlx_key_hook(game->mlx, move_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
+	free_map_array(game->grid);
 	free(game);
 	free(image);
 	return (EXIT_SUCCESS);

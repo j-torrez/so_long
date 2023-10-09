@@ -6,7 +6,7 @@
 #    By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:44:52 by arommers          #+#    #+#              #
-#    Updated: 2023/10/07 11:48:44 by jtorrez-         ###   ########.fr        #
+#    Updated: 2023/10/09 19:41:48 by jtorrez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,21 +35,18 @@ RESET	= \x1b[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MLX42) $(OBJ)	
-	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
+	@echo "Compiled with $(BLUE)$(CFLAGS)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX42) $(MLX42FLAGS)
-	@echo "$(CYAN)-------------------------------------------"
-	@echo "	$(NAME) = NOW READY FOR USE!"
-	@echo "-------------------------------------------$(RESET)"
+	@echo "$(GREEN)-------------------------------------------"
+	@echo "	$(NAME) = NOW READY FOR USE :D"
+	@echo "-------------------------------------------"
 
 $(LIBFT):
 	@$(MAKE) -C ./Libft
 
-$(MLX42):
-	@$(MAKE) -C ./MLX42
-
 $(OBJ_DIR)/%.o: ./SRC/%.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "Compiled ✅ $(CYAN) $^ $(RESET)"
+	@echo "Compiled ✅ $(CYAN) $^"
 	@$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $^
 
 clean:
@@ -59,7 +56,7 @@ clean:
 fclean: clean
 	@$(MAKE) fclean -C ./Libft
 	@rm -f $(NAME)
-	@echo "$(GREEN) $(PROJECT) $(RESET) Cleaned ✅"
+	@echo "$(GREEN) $(PROJECT) Cleaned ✅"
 
 re: fclean all
 

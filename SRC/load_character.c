@@ -6,7 +6,7 @@
 /*   By: jtorrez- <jtorrez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 12:19:10 by jtorrez-          #+#    #+#             */
-/*   Updated: 2023/10/09 19:10:45 by jtorrez-         ###   ########.fr       */
+/*   Updated: 2023/10/10 20:28:31 by jtorrez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	load_character_move_up(t_game *game, char dir)
 	{
 		mlx_image_to_window(game->mlx, game->img->character_up, 
 			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
-		while (game->img->character_up->count > 1)
+		if (game->img->character_up->count > 1)
 		{
 			game->img->character_up->instances[i].enabled = false;
 			game->img->character_up->count--;
@@ -45,7 +45,7 @@ void	load_character_move_down(t_game *game, char dir)
 	{
 		mlx_image_to_window(game->mlx, game->img->character_down, 
 			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
-		while (game->img->character_down->count > 1)
+		if (game->img->character_down->count > 1)
 		{
 			game->img->character_down->instances[d].enabled = false;
 			game->img->character_down->count--;
@@ -69,7 +69,7 @@ void	load_character_move_right(t_game *game, char dir)
 	{
 		mlx_image_to_window(game->mlx, game->img->character_right, 
 			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
-		while (game->img->character_right->count > 1)
+		if (game->img->character_right->count > 1)
 		{
 			game->img->character_right->instances[r].enabled = false;
 			game->img->character_right->count--;
@@ -93,7 +93,7 @@ void	load_character_move_left(t_game *game, char dir)
 	{
 		mlx_image_to_window(game->mlx, game->img->character_left, 
 			game->chara_pos_x * PIXELS, game->chara_pos_y * PIXELS);
-		while (game->img->character_left->count > 1)
+		if (game->img->character_left->count > 1)
 		{
 			game->img->character_left->instances[l].enabled = false;
 			game->img->character_left->count--;
